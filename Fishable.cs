@@ -1,0 +1,177 @@
+using System;
+using XRL.Core;
+using XRL.UI;
+using System.Linq;
+using System.Collections.Generic;
+using XRL.Language;
+using XRL.Rules;
+using XRL.World;
+using XRL.World.Encounters;
+using XRL.World.AI.GoalHandlers;
+using XRL.World.Parts.Effects;
+using XRL.World.Parts.Skill;
+
+
+namespace XRL.World.Parts
+{
+	[Serializable]
+	public class acegiak_Fishable : IPart
+	{
+		public string useFactionForFeelingFloor;
+
+		public bool acegiak_FishableIfPositiveFeeling;
+
+		private bool bOnlyAllowIfLiked = true;
+
+		public override bool SameAs(IPart p)
+		{
+			return false;
+		}
+
+		public override bool AllowStaticRegistration()
+		{
+			return true;
+		}
+
+		public override void Register(GameObject Object)
+		{
+			Object.RegisterPartEvent(this, "CommandSmartUse");
+			Object.RegisterPartEvent(this, "CanHaveSmartUseConversation");
+			Object.RegisterPartEvent(this, "CanSmartUse");
+			Object.RegisterPartEvent(this, "GetInventoryActions");
+			Object.RegisterPartEvent(this, "InvCommandFish");
+			Object.RegisterPartEvent(this, "InvCommandContinueFish");
+			base.Register(Object);
+		}
+
+		public bool Fish(GameObject who,int count = 0)
+		{
+            ParentObject.Splash(ConsoleLib.Console.ColorUtility.StripBackgroundFormatting(ParentObject.pRender.ColorString + "."));
+            int sittingMod = who.HasEffect("Sitting")?10:0;
+			acegiak_CookingAndGathering_Fishing skill = who.GetPart<acegiak_CookingAndGathering_Fishing>();
+			int skillMod = skill==null?0:who.Stat("Wisdom")/2;
+
+
+			List<GameObject> fishable = new List<GameObject>();
+			for(int i = 0; i< 5; i++){
+				fishable.Add(GameObjectFactory.Factory.CreateObject("Mucarp"));
+			}
+
+
+
+			if(skill != null){
+				for(int i = 0; i< 20; i++){
+					fishable.Add(EncounterFactory.Factory.RollOneFromTable("Fishing"));
+				}
+
+				if(ParentObject.pPhysics != null && ParentObject.pPhysics.CurrentCell != null && ParentObject.pPhysics.CurrentCell.ParentZone != null && !ParentObject.pPhysics.CurrentCell.ParentZone.IsWorldMap()){
+					for(int i = 0; i< 10; i++){
+						GameObject add = EncounterFactory.Factory.RollOneFromTable("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion());
+						if(add != null){
+							fishable.Add(add);
+						}
+					}
+				}
+			}
+
+            if(Stat.Roll("1d100")+who.StatMod("Agility")+sittingMod+skillMod > 95){
+				GameObject result = fishable[Stat.Random(0,fishable.Count-1)];
+				if(result.GetPart<Brain>() != null){
+					var rndGen = new Random();
+					ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).ElementAt(rndGen.Next(ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).Count)).AddObject(result);
+					XRLCore.Core.Game.ActionManager.AddActiveObject(result);
+
+				}else{
+                	who.GetPart<Inventory>().AddObject(result);
+				}
+                Popup.Show("You reel in a "+result.DisplayName+"!");
+				who.FireEvent(Event.New("StopFishing"));
+                return true;
+            }
+			return false;
+		}
+
+		public bool CheckRod(GameObject who)
+		{
+            if(who == null){
+                // Popup.Show("You dont exist.");
+                return false;
+            }
+			Body part = who.GetPart<Body>();
+            if(part == null){
+                // Popup.Show("You have no body.");
+                return false;
+            }
+			List<BodyPart> equippedParts = part.GetEquippedParts();
+			foreach (BodyPart item in equippedParts)
+			{
+				if(item.Equipped.HasTag("FishingRod")){
+
+                    // Popup.Show("You have a rod.");
+                    return true;
+                }
+			}
+            // Popup.Show("You don't have a rod.");
+			return false;
+		}
+
+		public override bool FireEvent(Event E)
+		{
+
+
+            LiquidVolume liquidVolume = ParentObject.GetPart<LiquidVolume>();
+            if(liquidVolume.Volume < 1000 && !liquidVolume.ContainsSignificantLiquid("water")){
+                return false;
+            }
+
+			if (E.ID == "CanSmartUse")
+			{
+                if(!CheckRod(E.GetGameObjectParameter("User"))){
+                    return false;
+                }
+				if ((!E.GetGameObjectParameter("User").IsPlayer() || !ParentObject.IsPlayerLed()) && !liquidVolume.IsFreshWater())
+				{
+					return false;
+				}
+			}
+			else if (E.ID == "CanHaveSmartUseConversation")
+			{
+                if(!CheckRod(E.GetGameObjectParameter("User"))){
+                    return false;
+                }
+				if (!liquidVolume.IsFreshWater())
+				{
+					return false;
+				}
+			}
+			else if (E.ID == "CommandSmartUse")
+			{
+                if(!CheckRod(E.GetGameObjectParameter("User"))){
+                    return false;
+                }
+				if (!E.GetGameObjectParameter("User").IsPlayer() || !ParentObject.IsPlayerLed())
+				{
+                    ParentObject.FireEvent(new Event("InvCommandFish", "Owner", E.GetGameObjectParameter("User")));
+				}
+			}
+			else if (E.ID == "GetInventoryActions")
+			{
+                if(!CheckRod(XRLCore.Core.Game.Player.Body)){
+                    return false;
+                }
+				E.GetParameter<EventParameterGetInventoryActions>("Actions").AddAction("Fish", 'f',  false, "&Wf&yish", "InvCommandFish", 10);
+			}
+			if (E.ID == "InvCommandFish")
+			{
+                E.GetGameObjectParameter("Owner").FireEvent(Event.New("StartFishing", "Pool", ParentObject, "Fisher", E.GetGameObjectParameter("User")));
+                Fish(E.GetGameObjectParameter("Owner"));
+				E.RequestInterfaceExit();
+			}
+			if (E.ID == "InvCommandContinueFish")
+			{
+                Fish(E.GetGameObjectParameter("Owner"),E.GetIntParameter("Count"));
+            }
+			return base.FireEvent(E);
+		}
+	}
+}

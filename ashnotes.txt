@@ -1,0 +1,3 @@
+Zone.FastFloodVisibiltyRecurse(cell.x, cell.y, cell.x, cell.y, radius, List<GameObject> ListToPutValuesIn, GameObject looker, DarkVision: true)
+
+GameObjectFactory.Factory.CreateSampleObject(EncountersAPI.GetARandomDescendentOf("Grenade"))
