@@ -5,11 +5,94 @@
     <objects>
       <tableobject Chance="5" Table="WaterEncounters"></tableobject>
       <tableobject Chance="90" Table="Junk 1"></tableobject>
+      <object Chance="100" Number="1d1" Blueprint="Mucarp"></object>
     </objects>
   </encountertable>
   <encountertable Name="Fishing_Joppa" Density="minimum">
     <objects>
       <object Chance="100" Number="1d1" Blueprint="Carriod"></object>
+      <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_Basic" Density="minimum">
+    <objects>
+      <object Chance="20" Number="1d1" Blueprint="Coost"></object>
+      <object Chance="20" Number="1d1" Blueprint="Hurling"></object>
+      <object Chance="5" Number="1d1" Blueprint="Jollywobble"></object>
+      <object Chance="5" Number="1d1" Blueprint="Carriod"></object>
+      <object Chance="1" Number="1d1" Blueprint="Displacer Cod"></object>
+      <tableobject Chance="100" Table="Fishing_Basic"></tableobject>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_Saltmarsh" Density="minimum">
+    <objects>
+      <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
+      <object Chance="5" Number="1d1" Blueprint="Displacer Cod"></object>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_Water" Density="minimum">
+    <objects>
+      <object Chance="50" Number="1d1" Blueprint="Jollywobble"></object>
+      <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_Fungal" Density="minimum">
+    <objects>
+      <object Chance="50" Number="1d1" Blueprint="Jollywobble"></object>
+      <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_Ruins" Density="minimum">
+    <objects>
+      <object Chance="10" Number="1d1" Blueprint="Braim"></object>
+      <tableobject Chance="40" Table="Fishing_Basic"></tableobject>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_Deathlands" Density="minimum">
+    <objects>
+      <object Chance="10" Number="1d1" Blueprint="Chromelet"></object>
+      <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_BananaGrove" Density="minimum">
+    <objects>
+      <object Chance="10" Number="1d1" Blueprint="Chromelet"></object>
+      <object Chance="10" Number="1d1" Blueprint="Braim"></object>
+      <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_Flowerfields" Density="minimum">
+    <objects>
+      <object Chance="25" Number="1d1" Blueprint="Displacer Cod"></object>
+      <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_Saltdunes" Density="minimum">
+    <objects>
+      <object Chance="50" Number="1d1" Blueprint="Carriod"></object>
+      <object Chance="25" Number="1d1" Blueprint="Salt Ray"></object>
+      <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
+      <tableobject Chance="25" Table="Scrap 1"></tableobject>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_Jungle" Density="minimum">
+    <objects>
+      <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_Mountains" Density="minimum">
+    <objects>
+      <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_DesertCanyon" Density="minimum">
+    <objects>
+      <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
+    </objects>
+  </encountertable>
+  <encountertable Name="Fishing_Hills" Density="minimum">
+    <objects>
+      <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
     </objects>
   </encountertable>
   </encountertables>

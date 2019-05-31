@@ -52,39 +52,26 @@ namespace XRL.World.Parts
 			int skillMod = skill==null?0:who.Stat("Wisdom")/2;
 
 
-			List<GameObject> fishable = new List<GameObject>();
-			for(int i = 0; i< 5; i++){
-				fishable.Add(GameObjectFactory.Factory.CreateObject("Mucarp"));
-			}
-
-
-
+			GameObject caught = GameObjectFactory.Factory.CreateObject("Mucarp");
+			
 			if(skill != null){
-				for(int i = 0; i< 20; i++){
-					fishable.Add(EncounterFactory.Factory.RollOneFromTable("Fishing"));
-				}
-
 				if(ParentObject.pPhysics != null && ParentObject.pPhysics.CurrentCell != null && ParentObject.pPhysics.CurrentCell.ParentZone != null && !ParentObject.pPhysics.CurrentCell.ParentZone.IsWorldMap()){
-					for(int i = 0; i< 10; i++){
-						GameObject add = EncounterFactory.Factory.RollOneFromTable("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion());
-						if(add != null){
-							fishable.Add(add);
-						}
-					}
+					caught = EncounterFactory.Factory.RollOneFromTable("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion());
+				}else{
+					caught = EncounterFactory.Factory.RollOneFromTable("Fishing");
 				}
 			}
 
             if(Stat.Roll("1d100")+who.StatMod("Agility")+sittingMod+skillMod > 95){
-				GameObject result = fishable[Stat.Random(0,fishable.Count-1)];
-				if(result.GetPart<Brain>() != null){
+				if(caught.GetPart<Brain>() != null){
 					var rndGen = new Random();
-					ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).ElementAt(rndGen.Next(ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).Count)).AddObject(result);
-					XRLCore.Core.Game.ActionManager.AddActiveObject(result);
+					ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).ElementAt(rndGen.Next(ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).Count)).AddObject(caught);
+					XRLCore.Core.Game.ActionManager.AddActiveObject(caught);
 
 				}else{
-                	who.GetPart<Inventory>().AddObject(result);
+                	who.GetPart<Inventory>().AddObject(caught);
 				}
-                Popup.Show("You reel in a "+result.DisplayName+"!");
+                Popup.Show("You reel in a "+caught.DisplayName+"!");
 				who.FireEvent(Event.New("StopFishing"));
                 return true;
             }
