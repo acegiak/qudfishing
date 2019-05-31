@@ -2,7 +2,7 @@
 
 * ~~Water can be fished in with a rod~~
 * ~~Fish caught can be cooked~~
-* Diverse fish results
+* ~~Diverse fish results~~
 * Fish results based on liquid composition
 * Fish results based on pool size
 * ~~Fishing takes time~~
