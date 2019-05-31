@@ -4,6 +4,8 @@
     <part Name="Render" DisplayName="&amp;cfishingrod" Tile="items/fishingrod.png" DetailColor="Y" ColorString="&amp;w"></part>
     <part Name="Description" Short="A simple hook on a string, attached to a wooden rod."></part>
     <tag Name="FishingRod" />
+    <part Name="TinkerItem" Bits="001" />
+
   </object>
   <object Name="Water" Load="Merge">
     <part Name="acegiak_Fishable"/>
