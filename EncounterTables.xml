@@ -1,6 +1,12 @@
 
   
   <encountertables>
+  <encountertable Name="Utility 2" Load="Merge">
+      <object Chance="20" Number="1d1" Blueprint="FishingRod"></object>
+  </encountertable>
+  <encountertable Name="Food 3" Load="Merge">
+      <tableobject Chance="25" Table="All Fish"></tableobject>
+  </encountertable>
   <encountertable Name="Fishing" Density="minimum">
     <objects>
       <tableobject Chance="5" Table="WaterEncounters"></tableobject>
@@ -23,6 +29,24 @@
       <object Chance="1" Number="1d1" Blueprint="Displacer Cod"></object>
       <tableobject Chance="40" Table="Junk 1"></tableobject>
       <tableobject Chance="100" Table="Fishing"></tableobject>
+    </objects>
+  </encountertable>
+
+  <encountertable Name="All Fish" Density="minimum">
+    <objects>
+      <object Chance="10" Number="1d1" Blueprint="Mucarp"></object>
+      <object Chance="10" Number="1d1" Blueprint="Coost"></object>
+      <object Chance="10" Number="1d1" Blueprint="Hurling"></object>
+      <object Chance="5" Number="1d1" Blueprint="Jollywobble"></object>
+      <object Chance="5" Number="1d1" Blueprint="Carriod"></object>
+      <object Chance="1" Number="1d1" Blueprint="Displacer Cod"></object>
+      <object Chance="1" Number="1d1" Blueprint="Braim"></object>
+      <object Chance="1" Number="1d1" Blueprint="Chromelet"></object>
+      <object Chance="2" Number="1d1" Blueprint="Sultan's Star"></object>
+      <object Chance="2" Number="1d1" Blueprint="Corrocandus"></object>
+      <object Chance="2" Number="1d1" Blueprint="Gastropus"></object>
+      <object Chance="5" Number="1d1" Blueprint="Ansurlid Eel"></object>
+      <object Chance="2" Number="1d1" Blueprint="Salt Ray"></object>
     </objects>
   </encountertable>
   <encountertable Name="Fishing_Saltmarsh" Density="minimum">
