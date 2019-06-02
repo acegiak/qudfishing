@@ -52,12 +52,16 @@ namespace XRL.World.Parts
 			int skillMod = skill==null?0:who.Stat("Wisdom")/2;
 
 
-			GameObject caught = GameObjectFactory.Factory.CreateObject("Mucarp");
+			GameObject caught = null;
 			
 			if(skill != null){
 				if(ParentObject.pPhysics != null && ParentObject.pPhysics.CurrentCell != null && ParentObject.pPhysics.CurrentCell.ParentZone != null && !ParentObject.pPhysics.CurrentCell.ParentZone.IsWorldMap()){
-					caught = EncounterFactory.Factory.RollOneFromTable("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion());
-				}else{
+					caught = EncounterFactory.Factory.RollOneFromTable("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext);
+					if(caught == null){
+						caught = EncounterFactory.Factory.RollOneFromTable("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion());
+					}
+				}
+				if(caught == null){
 					caught = EncounterFactory.Factory.RollOneFromTable("Fishing");
 				}
 			}
@@ -150,6 +154,14 @@ namespace XRL.World.Parts
 			}
 			if (E.ID == "InvCommandFish")
 			{
+				if(E.GetGameObjectParameter("Owner").IsPlayer()){
+					IPart.AddPlayerMessage("You cast a line.");
+					// IPart.AddPlayerMessage("Water in "+ParentObject.pPhysics.CurrentCell.ParentZone.DisplayName);
+					// IPart.AddPlayerMessage("Water in "+ParentObject.pPhysics.CurrentCell.ParentZone.BaseDisplayName);
+					// IPart.AddPlayerMessage("Water in "+ParentObject.pPhysics.CurrentCell.ParentZone.ReferenceDisplayName);
+					IPart.AddPlayerMessage("Water in "+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext);
+
+				}
                 E.GetGameObjectParameter("Owner").FireEvent(Event.New("StartFishing", "Pool", ParentObject, "Fisher", E.GetGameObjectParameter("User")));
                 Fish(E.GetGameObjectParameter("Owner"));
 				E.RequestInterfaceExit();

@@ -36,12 +36,12 @@ namespace XRL.World.Parts.Skill
 		public override bool FireEvent(Event E)
 		{
 			if (E.ID == "StartFishing"){
-				Popup.Show("You cast a line.");
+				//Popup.Show("You cast a line.");
                 fishinHole = E.GetGameObjectParameter("Pool");
             }
             if (E.ID == "StopFishing"){
                 if(fishinHole != null){
-                        Popup.Show("You stop fishing.");
+					IPart.AddPlayerMessage("You stop fishing.");
                 }
                 fishinHole = null;
             }
