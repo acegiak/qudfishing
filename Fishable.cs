@@ -159,7 +159,7 @@ namespace XRL.World.Parts
 					// IPart.AddPlayerMessage("Water in "+ParentObject.pPhysics.CurrentCell.ParentZone.DisplayName);
 					// IPart.AddPlayerMessage("Water in "+ParentObject.pPhysics.CurrentCell.ParentZone.BaseDisplayName);
 					// IPart.AddPlayerMessage("Water in "+ParentObject.pPhysics.CurrentCell.ParentZone.ReferenceDisplayName);
-					IPart.AddPlayerMessage("Water in "+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext);
+					// IPart.AddPlayerMessage("Water in "+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext);
 
 				}
                 E.GetGameObjectParameter("Owner").FireEvent(Event.New("StartFishing", "Pool", ParentObject, "Fisher", E.GetGameObjectParameter("User")));
