@@ -98,7 +98,7 @@
     <part Name="Food" Message="It is tough and salty, like pickled leather.~J211"></part>
     <part Name="Physics" Weight="2"></part>
     <part Name="Commerce" Value="1"></part>
-    <part Name="PreparedCookingIngredient" type="regen" charges="1"></part>
+    <part Name="PreparedCookingIngredient" type="regenLowtier" charges="1"></part>
     <part Name="PreservableItem" Result="Fish Jerky" Number="1"></part>
   </object>
   <object Name="Crylid"  Inherits="Caught Fish">
