@@ -2,7 +2,9 @@
   
   <encountertables>
   <encountertable Name="Utility 2" Load="Merge">
+    <objects>
       <object Chance="20" Number="1d1" Blueprint="FishingRod"></object>
+     </objects>
   </encountertable>
   <encountertable Name="Food 3" Load="Merge">
       <tableobject Chance="25" Table="All Fish"></tableobject>

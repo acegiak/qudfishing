@@ -16,9 +16,8 @@
   </object>
   <object Name="Caught Fish" Inherits="Raw Meat">
       <tag Name="ChooseToPreserve"></tag>
-      
-
   </object>
+  
   <object Name="Mucarp" Inherits="Caught Fish">
     <part Name="Render" DisplayName="&amp;rmucarp" Tile="creatures\sw_glowfish.bmp" DetailColor="W" TileColor="&amp;w"></part>
     <part Name="Description" Short="A common, slimy, and unpleasant fishlet.~J211"></part>
