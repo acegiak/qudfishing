@@ -137,7 +137,7 @@
     <part Name="PreservableItem" Result="Fish Jerky" Number="1"></part>
   </object>
   <object Name="Ansurlid Eel"  Inherits="Caught Fish">
-    <part Name="Render" DisplayName="&amp;Ka&amp;bn&amp;Ksurlid eel" Tile="creatures/ansurlideel.png" DetailColor="b" TileColor="&amp;g"></part>
+    <part Name="Render" DisplayName="&amp;Ka&amp;bn&amp;Ksurlid eel" Tile="creatures/ansurlideel.png" DetailColor="c" TileColor="&amp;w"></part>
     <part Name="Description" Short="A sullen, finless eel curls around itself in knots.~J211"></part>
     <part Name="Food" Message="It is cold and gamey, and fibrous on your tongue.~J211"></part>
     <part Name="Physics" Weight="1"></part>
