@@ -7,3 +7,5 @@ Sitting on a chair increases your chance of catching things.
 The skill "Fishing" is listed under "Cooking And Gathering". If you have the fishing skill then you can cast your line once and then wait by passing turns until you catch a fish. The fishing skill also drastically increases the variety of fish you can catch.
 
 Fishing rods can be purchased from Argyve, created with Tinkering, or found throughout the world.
+
+Sprites created by [CuddlyClover](https://twitter.com/cuddlyclover)
