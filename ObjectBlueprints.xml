@@ -48,7 +48,7 @@
     <part Name="PreservableItem" Result="Fish Jerky" Number="3"></part>
   </object>
   <object Name="Chromelet"  Inherits="Caught Fish">
-    <part Name="Render" DisplayName="&amp;Kc&amp;c&amp;Kh&amp;cr&amp;Ko&amp;cm&amp;Ke&amp;cl&amp;Ke&amp;ct" Tile="creatures\sw_glowfish.bmp" DetailColor="c" TileColor="&amp;K"></part>
+    <part Name="Render" DisplayName="&amp;Kc&amp;c&amp;Kh&amp;cr&amp;Ko&amp;cm&amp;Ke&amp;cl&amp;Ke&amp;ct" Tile="creatures\chromelet.bmp" DetailColor="c" TileColor="&amp;K"></part>
     <part Name="Description" Short="A chrome and neon sliver that wriggles in your hand.~J211"></part>
     <part Name="Food" Message="It is metalic and crunchy and rings through your skull.~J211"></part>
     <part Name="Physics" Weight="1"></part>
@@ -57,7 +57,7 @@
     <part Name="PreservableItem" Result="Fish Jerky" Number="3"></part>
   </object>
   <object Name="Jollywobble"  Inherits="Caught Fish">
-    <part Name="Render" DisplayName="&amp;mjollywobble" Tile="Creatures/sw_mushroom.bmp" DetailColor="Y" TileColor="&amp;C"></part>
+    <part Name="Render" DisplayName="&amp;mjollywobble" Tile="creatures/jollywobble.png" DetailColor="Y" TileColor="&amp;C"></part>
     <part Name="Description" Short="A translucent jelly with reaching tendrils.~J211"></part>
     <part Name="Food" Message="It slides around your mouth as you chew, tangy and sweet.~J211"></part>
     <part Name="Physics" Weight="0"></part>
@@ -66,7 +66,7 @@
     <part Name="PreservableItem" Result="Slimeskin" Number="1"></part>
   </object>
   <object Name="Hurling"  Inherits="Caught Fish">
-    <part Name="Render" DisplayName="&amp;ghurling" Tile="creatures\sw_glowfish.bmp" DetailColor="b" TileColor="&amp;g"></part>
+    <part Name="Render" DisplayName="&amp;ghurling" Tile="creatures\hurling.png" DetailColor="b" TileColor="&amp;g"></part>
     <part Name="Description" Short="A fat green fish with glassy eyes.~J211"></part>
     <part Name="Food" Message="It is rubbery under your teeth and gamey on your tongue.~J211"></part>
     <part Name="Physics" Weight="4"></part>
