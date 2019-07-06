@@ -17,6 +17,7 @@
   <encountertable Name="Fishing_Joppa" Density="minimum">
     <objects>
       <object Chance="100" Number="1d1" Blueprint="Carriod"></object>
+      <object Chance="1" Number="1d1" Blueprint="Merman"></object>
       <tableobject Chance="50" Table="Fishing_Basic"></tableobject>
     </objects>
   </encountertable>

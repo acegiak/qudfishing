@@ -17,11 +17,13 @@ namespace XRL.World.Parts
 	[Serializable]
 	public class acegiak_Fishable : IPart
 	{
-		public string useFactionForFeelingFloor;
+		[NonSerialized]
+		public GameObject Epic;
 
-		public bool acegiak_FishableIfPositiveFeeling;
+		[NonSerialized]
+		public Cell fromCell;
 
-		private bool bOnlyAllowIfLiked = true;
+
 
 		public override bool SameAs(IPart p)
 		{
@@ -65,19 +67,25 @@ namespace XRL.World.Parts
 					caught = EncounterFactory.Factory.RollOneFromTable("Fishing");
 				}
 			}
-
             if(Stat.Roll("1d100")+who.StatMod("Agility")+sittingMod+skillMod > 95){
-				if(caught.GetPart<Brain>() != null){
-					var rndGen = new Random();
-					ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).ElementAt(rndGen.Next(ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).Count)).AddObject(caught);
-					XRLCore.Core.Game.ActionManager.AddActiveObject(caught);
 
+				if(caught.HasTag("EpicFish")){
+					Epic = caught;
+					fromCell = who.CurrentCell;
+					IPart.AddPlayerMessage("There is a tug on your line.");
 				}else{
-                	who.GetPart<Inventory>().AddObject(caught);
+					if(caught.GetPart<Brain>() != null){
+						var rndGen = new Random();
+						ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).ElementAt(rndGen.Next(ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).Count)).AddObject(caught);
+						XRLCore.Core.Game.ActionManager.AddActiveObject(caught);
+
+					}else{
+						who.GetPart<Inventory>().AddObject(caught);
+					}
+					Popup.Show("You reel in a "+caught.DisplayName+"!");
+					who.FireEvent(Event.New("StopFishing"));
+					return true;
 				}
-                Popup.Show("You reel in a "+caught.DisplayName+"!");
-				who.FireEvent(Event.New("StopFishing"));
-                return true;
             }
 			return false;
 		}

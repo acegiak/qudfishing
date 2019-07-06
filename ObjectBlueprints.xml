@@ -145,6 +145,13 @@
     <part Name="PreparedCookingIngredient" type="lignin" charges="1"></part>
     <part Name="PreservableItem" Result="Fish Jerky" Number="1"></part>
   </object>
+  <object Name="Merman"  Inherits="Cannibal">
+    <part Name="Render" DisplayName="&amp;gM&amp;be&amp;grman" Tile="creatures/ansurlideel.png" DetailColor="c" TileColor="&amp;w"></part>
+    <part Name="Description" Short="A merman.~J211"></part>
+    <part Name="Physics" Weight="1"></part>
+    <part Name="Commerce" Value="1"></part>
+    <tag Name="EpicFish" />
+  </object>
 
 
 
