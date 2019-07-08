@@ -55,7 +55,7 @@ namespace XRL.World.Parts.Skill
                      }
                  }else{
                      if(fishinHole != null){
-						if(fishinHole.GetPart<acegiak_Fishable>().Epic == null){
+						if(fishinHole.GetPart<acegiak_Fishable>() == null ||  fishinHole.GetPart<acegiak_Fishable>().Epic == null){
                         	Popup.Show("You stop fishing.");
                      		fishinHole = null;
 						}else{
