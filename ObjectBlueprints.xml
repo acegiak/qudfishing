@@ -145,11 +145,11 @@
     <part Name="PreparedCookingIngredient" type="lignin" charges="1"></part>
     <part Name="PreservableItem" Result="Fish Jerky" Number="1"></part>
   </object>
-  <object Name="Merman"  Inherits="Cannibal">
-    <part Name="Render" DisplayName="&amp;gM&amp;be&amp;grman" Tile="creatures/ansurlideel.png" DetailColor="c" TileColor="&amp;w"></part>
-    <part Name="Description" Short="A merman.~J211"></part>
-    <part Name="Physics" Weight="1"></part>
-    <part Name="Commerce" Value="1"></part>
+  <object Name="Merman" Inherits="Glowpad">
+    <part Name="Render" DisplayName="&amp;gM&amp;be&amp;grman" DetailColor="c" TileColor="&amp;w"></part>
+    <part Name="Description" Short="A face of reeds and bones emerges from the silt. The bed beneath the surface knows you.~J211"></part>
+    <part Name="Brain" Hostile="false" Aquatic="true" Wanders="false" Mobile="false" HostileWalkRadius="2"  Factions="Fungi-100"></part>
+    <part Name="ConversationScript" ConversationID="Merman" />
     <tag Name="EpicFish" />
   </object>
 
