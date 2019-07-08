@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<quests>
+    <quest Name="A Gift For The Deep" Level="1" Accomplishment="You gave form to Mermen.">
+  
+        <step Name="Give the Mermen feet." XP="150">
+            <text>Give feet to the Mermen.</text>
+        </step>
+        <step Name="Give the Mermen hands." XP="150">
+            <text>Give hands to the Mermen.</text>
+        </step>
+        <step Name="Give the Mermen a face." XP="150">
+            <text>Give a face to the Mermen.</text>
+        </step>
+  
+    </quest>
+</quests>
