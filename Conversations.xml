@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <conversations>
-  <!-- JoppaZealot-->
   <conversation ID="Merman">
     <node ID="Start">
-      <text>Wanderer! Orphan of the salt! Hear me!
+      <text>*gurgling*
+        
+Wanderer! Fool! Leave us!
 
-To the North and the West, through the Great Salt Desert, the Six Day Stilt splits the earth in two! Seek there the grandeur of Shekhinah, First among Fathers. Release yourself from the burden that chrome bears on your sickly flesh.
-
-Go, now!</text>
-      <choice GotoID="End" StartQuest="O Glorious Shekhinah!">You intrigue me. I will make the journey and see the Six Day Stilt for myself.</choice>
-      <choice GotoID="What">What waits for me there?</choice>
-      <choice GotoID="End">Hold your tongue, soothsayer. The salt pools in blood beneath the feet of those who dare command me.</choice>
+Gasp your air and wait to die.</text>
+      <choice GotoID="What">What do you desire, creature?</choice>
+      <choice GotoID="End">Begone, foul creature.</choice>
       <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
     </node>
     <node ID="What">
-      <text>
-Deliverance waits for all pilgrims.
+      <text>*gurgling*
 
-At the site, you will find the cathedral, magnificent in its splendor. There are statues erected in honor of the Argent Fathers. There are sublime reliefs depicting our most cherished occasions. Hear, too, the wisdom of Eschelstadt II, our highest priest, and make a donation at the Sacred Well. Worship at the light sculpture of Shekhinah Himself.
+You walk as men.
 
-You will find other pilgrims among the merchant tents at the Stiltgrounds bazaar, other converts and priests. You will be among friends.
-      </text>
-      <choice GotoID="End" StartQuest="O Glorious Shekhinah!">Very well. I will make the journey and see the Six Day Stilt for myself.</choice>
-      <choice GotoID="End">I waste precious spit on your Stilt. Leave me be.</choice>
+You speak with tongues.
+
+You grasp the world between your thumbs.
+  
+Begone.</text>
+      <choice GotoID="End" StartQuest="A Gift For The Deep">You will be, friend. You will be.</choice>
+      <choice GotoID="End">You are barely a thing. I have had enough of this.</choice>
       <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
     </node>
   </conversation>
