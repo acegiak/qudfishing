@@ -74,6 +74,7 @@ namespace XRL.World.Parts
 					fromCell = who.CurrentCell;
 					IPart.AddPlayerMessage("There is a tug on your line.");
 				}else{
+					caught.AwardXPTo(who,"Catch");
 					if(caught.GetPart<Brain>() != null){
 						var rndGen = new Random();
 						ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).ElementAt(rndGen.Next(ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).Count)).AddObject(caught);

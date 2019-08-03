@@ -67,6 +67,7 @@ namespace XRL.World.Parts.Skill
 								}
 							}else{
 								Popup.Show("You reel in "+fishinHole.GetPart<acegiak_Fishable>().Epic.the+fishinHole.GetPart<acegiak_Fishable>().Epic.DisplayNameOnly+".");
+								fishinHole.GetPart<acegiak_Fishable>().Epic.AwardXPTo(ParentObject,"Catch");
 								fishinHole.GetPart<acegiak_Fishable>().fromCell.AddObject(fishinHole.GetPart<acegiak_Fishable>().Epic);
 								fishinHole.GetPart<acegiak_Fishable>().fromCell = null;
 								fishinHole.GetPart<acegiak_Fishable>().Epic = null;
