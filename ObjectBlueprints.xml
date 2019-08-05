@@ -3,7 +3,7 @@
   <object Name="FishingRod" Inherits="Tool">
     <part Name="Render" DisplayName="&amp;cfishing rod" Tile="items/fishingrod.png" DetailColor="Y" ColorString="&amp;w"></part>
     <part Name="Description" Short="A simple hook on a string, attached to a wooden rod.
-    
+
 [Interact with a pool of water to fish.]"></part>
     <tag Name="FishingRod" />
     <part Name="Commerce" Value="3"></part>
@@ -175,26 +175,40 @@
     <part Name="EffectOnEat" Effect="Phased" Duration="50"></part>
     <part Name="PreparedCookingIngredient" type="phase" charges="4"></part>
   </object>
-  <object Name="Shoreditch" Inherits="BaseFish">
+  <object Name="Blogn" Inherits="Caught Fish">
+    <part Name="Render" DisplayName="&amp;Mbl&amp;mo&amp;Mgn" DetailColor="c" TileColor="&amp;w" Tile="creatures\sw_glowfish.bmp"></part>
+    <part Name="Description" Short="A wrinkled ball of greymatter encased in ceramic chitin and adorned with glinting eyes and ineffectual pincers.~J211"></part>
+    <tag Name="EpicFish" />
+    <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit"></tag>
+    <part Name="EffectOnEat" Effect="acegiak_InstantSecret" Duration="0"></part>
+    <part Name="PreparedCookingIngredient" type="secrets" charges="4"></part>
+  </object>
+  <!-- <object Name="Shoreditch" Inherits="BaseFish">
     <tag Name="EpicFish" />
     <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit"></tag>
     <part Name="Render" DisplayName="madpole" Tile="Creatures/sw_madpole.bmp"  RenderString="224" ColorString="&amp;W" />
-    <part Name="Corpse" CorpseChance="100" CorpseBlueprint="Madpole Corpse" BodyDrop="false" InventoryDrop="true" />
+    <part Name="Corpse" CorpseChance="100" CorpseBlueprint="Raw Fish Meat" BodyDrop="false" InventoryDrop="true" />
     <stat Name="Hitpoints" Value="55" />
     <stat Name="Strength" sValue="38" />
     <stat Name="Agility" sValue="27" />
     <stat Name="Level" Value="27" />
     <part Name="Brain" WandersRandomly="true" Wanders="false" Hostile="True" Aquatic="true" />
     <mutation Name="Gills" Score="12" />
-    <skill Name="Axe_Expertise" />
-    <skill Name="Axe_Dismember" />
-    <part Name="Madpole" />
-    <part Name="Description" Short="The distended jaw of this large aureolin fish is lined with wicked, blade-like teeth. You shudder to imagine what sort of terrible amphibious fiend the madpole might one day become." />
+    <skill Name="ShortBlades_Expertise" />
+    <skill Name="ShortBlades_Bloodletter" />
+    <skill Name="ShortBlades_Jab" />
+    <part Name="Body" Builder="BodySpider" />
+
+    <part Name="Description" Short="" />
     <inventoryobject Blueprint="Madpole_Jaws" Number="1" />
     <property Name="NoLoot" Value="true" />
     <property Name="Role" Value="Minion" />
-    <tag Name="DynamicObjectsTable:Water_Creatures" />
   </object>
+    <object Name="Shoreditch Barb" Inherits="NaturalWeapon">
+    <part Name="Render" DisplayName="bite" />
+    <part Name="MeleeWeapon" RenderString="\" BaseDamage="1d3" Skill="ShortBlades" Stat="Strength" Slot="Head" />
+    <part Name="PoisonMelee" />
+  </object> -->
 
 
 
