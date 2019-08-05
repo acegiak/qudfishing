@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <skills>
   <skill Name="Cooking and Gathering" Load="Merge">
-      <power Name="Fishing" Cost="50" Attribute="Intelligence" Minimum="15" Class="acegiak_CookingAndGathering_Fishing" Snippet="fishing" Description="You are skilled at fishing and can fish for extended periods."></power>
+      <power Name="Fishing" Cost="50" Attribute="Intelligence" Minimum="15" Class="acegiak_CookingAndGathering_Fishing" Snippet="fishing" Description="You are skilled at fishing and can pass turns to continue fishing after casting a line. The variety of fish you are capable of catching is also increased."></power>
   </skill>
 </skills>
