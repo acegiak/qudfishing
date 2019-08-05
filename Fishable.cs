@@ -110,6 +110,16 @@ namespace XRL.World.Parts
                     return true;
                 }
 			}
+			if(who.GetPart<Inventory>() != null){
+				foreach (GameObject obj in who.GetPart<Inventory>().GetObjects()){
+					if(obj.HasTag("FishingRod")){
+
+                    // Popup.Show("You have a rod.");
+                    return true;
+                }
+				}
+
+			}
             // Popup.Show("You don't have a rod.");
 			return false;
 		}
