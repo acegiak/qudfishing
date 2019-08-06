@@ -65,13 +65,17 @@ namespace XRL.World.Parts
 				}
 				if(caught == null){
 					caught = EncounterFactory.Factory.RollOneFromTable("Fishing");
+					//IPart.AddPlayerMessage("backup:"+caught.DisplayName);
+				}else{
+
+					//IPart.AddPlayerMessage("got:"+caught.DisplayName);
 				}
 			}
             if(Stat.Roll("1d100")+who.StatMod("Agility")+sittingMod+skillMod > 95){
 
 				if(caught.HasTag("EpicFish")){
-					Epic = caught;
-					fromCell = who.CurrentCell;
+					this.Epic = caught;
+					this.fromCell = who.CurrentCell;
 					IPart.AddPlayerMessage("There is a tug on your line.");
 				}else{
 					caught.AwardXPTo(who,"Catch");

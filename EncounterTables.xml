@@ -27,17 +27,17 @@
       <object Chance="5" Number="1d1" Blueprint="Jollywobble"></object>
       <object Chance="5" Number="1d1" Blueprint="Carriod"></object>
       <object Chance="1" Number="1d1" Blueprint="Displacer Cod"></object>
-      <tableobject Chance="1" Table="Fishing_Rare"></tableobject>
+      <tableobject Chance="5" Table="Fishing_Rare"></tableobject>
       <tableobject Chance="40" Table="Junk 1"></tableobject>
-      <tableobject Chance="100" Table="Fishing"></tableobject>
+      <tableobject Chance="50" Table="Fishing"></tableobject>
     </objects>
   </encountertable>
   
   <encountertable Name="Fishing_Rare" Density="minimum">
-        <object Chance="10" Number="1d1" Blueprint="Burlio"></object>
-        <object Chance="10" Number="1d1" Blueprint="Slither"></object>
-        <object Chance="10" Number="1d1" Blueprint="Shoreditch"></object>
-
+      <objects>
+        <object Chance="100" Number="1d1" Blueprint="Burlio"></object>
+        <object Chance="100" Number="1d1" Blueprint="Slither"></object>
+      </objects>
   </encountertable>
 
   <encountertable Name="All Fish" Density="minimum">
