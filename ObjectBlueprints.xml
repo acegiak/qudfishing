@@ -4,7 +4,7 @@
     <part Name="Render" DisplayName="&amp;cfishing rod" Tile="items/fishingrod.png" DetailColor="Y" ColorString="&amp;w"></part>
     <part Name="Description" Short="A simple hook on a string, attached to a wooden rod.
 
-[Interact with a pool of water to fish.]"></part>
+&amp;K[Interact with a pool of water to fish.]"></part>
     <tag Name="FishingRod" />
     <part Name="Commerce" Value="3"></part>
     <part Name="TinkerItem" Bits="001" />

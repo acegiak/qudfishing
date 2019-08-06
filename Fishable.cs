@@ -58,10 +58,16 @@ namespace XRL.World.Parts
 			
 			if(skill != null){
 				if(ParentObject.pPhysics != null && ParentObject.pPhysics.CurrentCell != null && ParentObject.pPhysics.CurrentCell.ParentZone != null && !ParentObject.pPhysics.CurrentCell.ParentZone.IsWorldMap()){
-					caught = EncounterFactory.Factory.RollOneFromTable("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext);
+
+					//IPart.AddPlayerMessage("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext);
+					if(ParentObject.pPhysics.CurrentCell.ParentZone.NameContext != null && ParentObject.pPhysics.CurrentCell.ParentZone.NameContext != String.Empty){
+						caught = EncounterFactory.Factory.RollOneFromTable("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext);
+					}
 					if(caught == null){
+						//IPart.AddPlayerMessage("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion());
 						caught = EncounterFactory.Factory.RollOneFromTable("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion());
 					}
+
 				}
 				if(caught == null){
 					caught = EncounterFactory.Factory.RollOneFromTable("Fishing");
@@ -78,7 +84,6 @@ namespace XRL.World.Parts
 					this.fromCell = who.CurrentCell;
 					IPart.AddPlayerMessage("There is a tug on your line.");
 				}else{
-					caught.AwardXPTo(who,"Catch");
 					if(caught.GetPart<Brain>() != null){
 						var rndGen = new Random();
 						ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).ElementAt(rndGen.Next(ParentObject.pPhysics.CurrentCell.GetAdjacentCells(1).Count)).AddObject(caught);
@@ -88,10 +93,14 @@ namespace XRL.World.Parts
 						who.GetPart<Inventory>().AddObject(caught);
 					}
 					Popup.Show("You reel in a "+caught.DisplayName+"!");
+					caught.AwardXPTo(who,"Catch");
 					who.FireEvent(Event.New("StopFishing"));
 					return true;
 				}
             }
+			if(skill == null){
+				IPart.AddPlayerMessage("But nothing bites.");
+			}
 			return false;
 		}
 
