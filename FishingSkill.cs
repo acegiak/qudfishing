@@ -7,6 +7,7 @@ using XRL.Language;
 using XRL.Rules;
 using XRL.World.AI.GoalHandlers;
 using XRL.World.Parts.Effects;
+using UnityEngine;
 
 
 namespace XRL.World.Parts.Skill
@@ -17,7 +18,7 @@ namespace XRL.World.Parts.Skill
 		//public Guid ButcherActivatedAbilityID = Guid.Empty;
 
 		[NonSerialized]
-		public GameObject fishinHole = null;
+		public XRL.World.GameObject fishinHole = null;
 		public int turnCount = 0;
 
 		public acegiak_CookingAndGathering_Fishing()
@@ -25,7 +26,7 @@ namespace XRL.World.Parts.Skill
 			//DisplayName = "acegiak_CookingAndGathering_Fishing";
 		}
 
-		public override void Register(GameObject Object)
+		public override void Register(XRL.World.GameObject Object)
 		{
 			Object.RegisterPartEvent(this, "StartFishing");
 			Object.RegisterPartEvent(this, "StopFishing");
@@ -36,28 +37,48 @@ namespace XRL.World.Parts.Skill
 
 		public override bool FireEvent(Event E)
 		{
+			//Debug.Log("Event: "+E.ID+".");
+
 			if (E.ID == "StartFishing"){
+				Debug.Log("startfishevent.");
 				//Popup.Show("You cast a line.");
                 fishinHole = E.GetGameObjectParameter("Pool");
             }
             if (E.ID == "StopFishing"){
+				Debug.Log("stopfishevent.");
+
                 if(fishinHole != null){
 					IPart.AddPlayerMessage("You stop fishing.");
                 }
                 fishinHole = null;
             }
 			if (E.ID == "UseEnergy"){
+				Debug.Log("use energy.");
+				Debug.Log(E.GetStringParameter("Type", string.Empty));
+
                  if(E.GetStringParameter("Type", string.Empty) == "Pass" || E.GetStringParameter("Type", string.Empty) == string.Empty || E.GetStringParameter("Type", string.Empty) == "Fishing"|| E.GetStringParameter("Type", string.Empty) == "None"){
+
+					 Debug.Log("passturn.");
                      if(fishinHole != null){
+						Debug.Log("goncontinuefish.");
+
                         fishinHole.FireEvent(Event.New("InvCommandContinueFish", "Owner", ParentObject,"Count",++turnCount));
 						fishinHole.GetPart<acegiak_Fishable>().fromCell = null;
 						fishinHole.GetPart<acegiak_Fishable>().Epic = null;
+
+						Debug.Log("continuefish.");
                      }
                  }else{
+					//Debug.Log("notfish.");
+
                      if(fishinHole != null){
+ 						Debug.Log("stopfish.");
+
 						if(fishinHole.GetPart<acegiak_Fishable>() == null ||  fishinHole.GetPart<acegiak_Fishable>().Epic == null){
                         	Popup.Show("You stop fishing.");
                      		fishinHole = null;
+							Debug.Log("fishstopped.");
+
 						}else{
 							if(fishinHole.GetPart<acegiak_Fishable>().Epic.HasStat("Strength") && fishinHole.GetPart<acegiak_Fishable>().Epic.MakeSave("Strength",1,ParentObject,"Strength")){
 								if(ParentObject.CurrentCell != fishinHole.GetPart<acegiak_Fishable>().fromCell){
@@ -66,26 +87,30 @@ namespace XRL.World.Parts.Skill
 									IPart.AddPlayerMessage("You tug at the line.");
 								}
 							}else{
+									Debug.Log("reelin.");
 								Popup.Show("You reel in "+fishinHole.GetPart<acegiak_Fishable>().Epic.the+fishinHole.GetPart<acegiak_Fishable>().Epic.DisplayNameOnly+".");
 								fishinHole.GetPart<acegiak_Fishable>().Epic.AwardXPTo(ParentObject,"Catch");
 								fishinHole.GetPart<acegiak_Fishable>().fromCell.AddObject(fishinHole.GetPart<acegiak_Fishable>().Epic);
 								fishinHole.GetPart<acegiak_Fishable>().fromCell = null;
 								fishinHole.GetPart<acegiak_Fishable>().Epic = null;
 								fishinHole = null;
+									Debug.Log("reeledin.");
 							}
 						}
                      }
                  }
             }
+			//Debug.Log("End event: "+E.ID+".");
+
 			return base.FireEvent(E);
 		}
 
-		public override bool AddSkill(GameObject GO)
+		public override bool AddSkill(XRL.World.GameObject GO)
 		{
 			return true;
 		}
 
-		public override bool RemoveSkill(GameObject GO)
+		public override bool RemoveSkill(XRL.World.GameObject GO)
 		{
 			return true;
 		}

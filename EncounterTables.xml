@@ -9,8 +9,9 @@
   </encountertable>
   <encountertable Name="Fishing" Density="minimum">
     <objects>
-      <tableobject Chance="5" Table="WaterEncounters"></tableobject>
+      <tableobject Chance="10" Table="WaterEncounters"></tableobject>
       <tableobject Chance="90" Table="Scrap 1"></tableobject>
+      <tableobject Chance="20" Table="Junk 1"></tableobject>
       <object Chance="100" Number="1d1" Blueprint="Mucarp"></object>
     </objects>
   </encountertable>
@@ -27,17 +28,16 @@
       <object Chance="5" Number="1d1" Blueprint="Jollywobble"></object>
       <object Chance="5" Number="1d1" Blueprint="Carriod"></object>
       <object Chance="1" Number="1d1" Blueprint="Displacer Cod"></object>
-      <tableobject Chance="1" Table="Fishing_Rare"></tableobject>
+      <tableobject Chance="1000" Table="Fishing_Rare"></tableobject>
       <tableobject Chance="40" Table="Junk 1"></tableobject>
       <tableobject Chance="100" Table="Fishing"></tableobject>
     </objects>
   </encountertable>
   
   <encountertable Name="Fishing_Rare" Density="minimum">
-        <object Chance="10" Number="1d1" Blueprint="Burlio"></object>
-        <object Chance="10" Number="1d1" Blueprint="Slither"></object>
-        <object Chance="10" Number="1d1" Blueprint="Shoreditch"></object>
-
+        <object Chance="100" Number="1d1" Blueprint="Burlio"></object>
+        <object Chance="100" Number="1d1" Blueprint="Slither"></object>
+        <object Chance="100" Number="1d1" Blueprint="Blogn"></object>
   </encountertable>
 
   <encountertable Name="All Fish" Density="minimum">
