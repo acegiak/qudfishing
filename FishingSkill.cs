@@ -40,12 +40,12 @@ namespace XRL.World.Parts.Skill
 			//Debug.Log("Event: "+E.ID+".");
 
 			if (E.ID == "StartFishing"){
-				Debug.Log("startfishevent.");
+				//Debug.Log("startfishevent.");
 				//Popup.Show("You cast a line.");
                 fishinHole = E.GetGameObjectParameter("Pool");
             }
             if (E.ID == "StopFishing"){
-				Debug.Log("stopfishevent.");
+				//Debug.Log("stopfishevent.");
 
                 if(fishinHole != null){
 					IPart.AddPlayerMessage("You stop fishing.");
@@ -53,12 +53,12 @@ namespace XRL.World.Parts.Skill
                 fishinHole = null;
             }
 			if (E.ID == "UseEnergy"){
-				Debug.Log("use energy.");
-				Debug.Log(E.GetStringParameter("Type", string.Empty));
+				//Debug.Log("use energy.");
+				//Debug.Log(E.GetStringParameter("Type", string.Empty));
 
                  if(E.GetStringParameter("Type", string.Empty) == "Pass" || E.GetStringParameter("Type", string.Empty) == string.Empty || E.GetStringParameter("Type", string.Empty) == "Fishing"|| E.GetStringParameter("Type", string.Empty) == "None"){
 
-					 Debug.Log("passturn.");
+					 //Debug.Log("passturn.");
                      if(fishinHole != null){
 						fishinHole.GetPart<acegiak_Fishable>().fromCell = null;
 						fishinHole.GetPart<acegiak_Fishable>().Epic = null;
@@ -68,29 +68,29 @@ namespace XRL.World.Parts.Skill
 					//Debug.Log("notfish.");
 
                      if(fishinHole != null){
- 						Debug.Log("stopfish.");
+ 						//Debug.Log("stopfish.");
 
 						if(fishinHole.GetPart<acegiak_Fishable>() == null ||  fishinHole.GetPart<acegiak_Fishable>().Epic == null){
-                        	Popup.Show("You stop fishing.");
+                        	IPart.AddPlayerMessage("You stop fishing.");
                      		fishinHole = null;
-							Debug.Log("fishstopped.");
+							//Debug.Log("fishstopped.");
 
 						}else{
 							if(fishinHole.GetPart<acegiak_Fishable>().Epic.HasStat("Strength") && fishinHole.GetPart<acegiak_Fishable>().Epic.MakeSave("Strength",1,ParentObject,"Strength")){
 								if(ParentObject.CurrentCell != fishinHole.GetPart<acegiak_Fishable>().fromCell){
 									fishinHole.GetPart<acegiak_Fishable>().fromCell.AddObject(ParentObject);
 									//ParentObject.CurrentCell = fishinHole.GetPart<acegiak_Fishable>().fromCell;
-									IPart.AddPlayerMessage("You tug at the line.");
+									//IPart.AddPlayerMessage("You tug at the line.");
 								}
 							}else{
-									Debug.Log("reelin.");
+									//Debug.Log("reelin.");
 								Popup.Show("You reel in "+fishinHole.GetPart<acegiak_Fishable>().Epic.the+fishinHole.GetPart<acegiak_Fishable>().Epic.DisplayNameOnly+".");
 								fishinHole.GetPart<acegiak_Fishable>().Epic.AwardXPTo(ParentObject,"Catch");
 								fishinHole.GetPart<acegiak_Fishable>().fromCell.AddObject(fishinHole.GetPart<acegiak_Fishable>().Epic);
 								fishinHole.GetPart<acegiak_Fishable>().fromCell = null;
 								fishinHole.GetPart<acegiak_Fishable>().Epic = null;
 								fishinHole = null;
-									Debug.Log("reeledin.");
+									//Debug.Log("reeledin.");
 							}
 						}
                      }
