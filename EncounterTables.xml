@@ -38,8 +38,22 @@
       <objects>
         <object Chance="100" Number="1d1" Blueprint="Burlio"></object>
         <object Chance="100" Number="1d1" Blueprint="Slither"></object>
+        <object Chance="100" Number="1d1" Blueprint="Hurwobble"></object>
+        <object Chance="100" Number="1d1" Blueprint="Tinker Crab"></object>
       </objects>
   </encountertable>
+
+  <encountertable Name="Cave Critters 2" Load="Merge">
+      <objects>
+          <object Chance="1" Number="1d1" Blueprint="Tinker Crab"></object>
+      </objects>
+    </encountertable>
+
+    <encountertable Name="WaterEncounters" Load="Merge">
+      <objects>
+          <object Chance="1" Number="1d1" Blueprint="Tinker Crab"></object>
+      </objects>
+    </encountertable>
 
   <encountertable Name="All Fish" Density="minimum">
     <objects>
@@ -161,4 +175,28 @@
       <tableobject Chance="5" Table="Junk 1"></tableobject>
     </objects>
   </encountertable>
+
+
+  <encountertable Name="TinkerShells" Density="minimum">
+    <objects>
+        <object Chance="100" Number="1d1" Blueprint="Knollworm Skull"></object>
+        <object Chance="100" Number="1d1" Blueprint="Miner's Helmet"></object>
+        <object Chance="100" Number="1d1" Blueprint="BaseTierHead3_AV"/>
+        <object Chance="100" Number="1d1" Blueprint="BaseTierHead4_AV"/>
+        <object Chance="100" Number="1d1" Blueprint="Electric Snail Shell"/>
+        <object Chance="100" Number="1d1" Blueprint="Fork-Horned Helmet 3"/>
+        <object Chance="100" Number="1d1" Blueprint="Steel Helmet"/>
+        <object Chance="100" Number="1d1" Blueprint="Fork-Horned Helmet 4"/>
+        <object Chance="50" Number="1d1" Blueprint="RobotHead3"/>
+        <object Chance="50" Number="1d1" Blueprint="Steel Buckler"/>
+        <object Chance="50" Number="1d1" Blueprint="Wooden Buckler"/>
+        <object Chance="50" Number="1d1" Blueprint="Vase"/>
+        <object Chance="50" Number="1d1" Blueprint="Bottle"/>
+        <object Chance="50" Number="1d1" Blueprint="Ewer"/>
+        <object Chance="50" Number="1d1" Blueprint="Pitcher"/>
+        <object Chance="50" Number="1d1" Blueprint="Jug"/>
+        <object Chance="50" Number="1d1" Blueprint="Long Jug"/>
+
+      </objects>
+      </encountertable>
   </encountertables>
