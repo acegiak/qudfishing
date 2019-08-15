@@ -8,6 +8,7 @@ using XRL.Rules;
 using XRL.World.AI.GoalHandlers;
 using XRL.World.Parts.Effects;
 using UnityEngine;
+using XRL.World.ZoneBuilders;
 
 
 namespace XRL.World.Parts.Skill
@@ -60,6 +61,9 @@ namespace XRL.World.Parts.Skill
 
 					 //Debug.Log("passturn.");
                      if(fishinHole != null){
+						if(fishinHole.GetPart<acegiak_Fishable>().Epic != null){
+							IPart.AddPlayerMessage("The line goes slack.");
+						}
 						fishinHole.GetPart<acegiak_Fishable>().fromCell = null;
 						fishinHole.GetPart<acegiak_Fishable>().Epic = null;
                         fishinHole.FireEvent(Event.New("InvCommandContinueFish", "Owner", ParentObject,"Count",++turnCount));
@@ -73,24 +77,21 @@ namespace XRL.World.Parts.Skill
 						if(fishinHole.GetPart<acegiak_Fishable>() == null ||  fishinHole.GetPart<acegiak_Fishable>().Epic == null){
                         	IPart.AddPlayerMessage("You stop fishing.");
                      		fishinHole = null;
-							//Debug.Log("fishstopped.");
 
 						}else{
 							if(fishinHole.GetPart<acegiak_Fishable>().Epic.HasStat("Strength") && fishinHole.GetPart<acegiak_Fishable>().Epic.MakeSave("Strength",1,ParentObject,"Strength")){
 								if(ParentObject.CurrentCell != fishinHole.GetPart<acegiak_Fishable>().fromCell){
 									fishinHole.GetPart<acegiak_Fishable>().fromCell.AddObject(ParentObject);
 									//ParentObject.CurrentCell = fishinHole.GetPart<acegiak_Fishable>().fromCell;
-									//IPart.AddPlayerMessage("You tug at the line.");
+									IPart.AddPlayerMessage("You strain at the line!");
 								}
 							}else{
-									//Debug.Log("reelin.");
 								Popup.Show("You reel in "+fishinHole.GetPart<acegiak_Fishable>().Epic.the+fishinHole.GetPart<acegiak_Fishable>().Epic.DisplayNameOnly+".");
 								fishinHole.GetPart<acegiak_Fishable>().Epic.AwardXPTo(ParentObject,"Catch");
 								fishinHole.GetPart<acegiak_Fishable>().fromCell.AddObject(fishinHole.GetPart<acegiak_Fishable>().Epic);
 								fishinHole.GetPart<acegiak_Fishable>().fromCell = null;
 								fishinHole.GetPart<acegiak_Fishable>().Epic = null;
 								fishinHole = null;
-									//Debug.Log("reeledin.");
 							}
 						}
                      }

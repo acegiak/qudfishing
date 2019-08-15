@@ -10,6 +10,7 @@ using XRL.World.Encounters;
 using XRL.World.AI.GoalHandlers;
 using XRL.World.Parts.Effects;
 using XRL.World.Parts.Skill;
+using XRL.World.ZoneBuilders;
 
 
 namespace XRL.World.Parts
@@ -80,9 +81,17 @@ namespace XRL.World.Parts
             if(Stat.Roll("1d100")+who.StatMod("Agility")+sittingMod+skillMod > 95){
 
 				if(caught.HasTag("EpicFish")){
+					if(caught.HasTag("LegendaryReel") && Stat.Rnd2.Next(1,100) < Int32.Parse(caught.GetTag("LegendaryReel"))){
+						GameObject g =  heroify(caught);
+						if(g == null){
+							IPart.AddPlayerMessage("Couldn't heroify");
+						}else{
+							caught = g;
+						}
+					}
 					this.Epic = caught;
 					this.fromCell = who.CurrentCell;
-					IPart.AddPlayerMessage("There is a tug on your line.");
+					IPart.AddPlayerMessage("There is a tug on your line."+this.Epic.DisplayName);
 				}else{
 					if(caught.GetPart<Brain>() != null){
 						var rndGen = new Random();
@@ -102,6 +111,15 @@ namespace XRL.World.Parts
 				IPart.AddPlayerMessage("But nothing bites.");
 			}
 			return false;
+		}
+
+		public GameObject heroify(GameObject gameObject){
+			AnimateObject.Animate(gameObject);
+			gameObject.pRender.DisplayName = gameObject.pRender.DisplayName.Replace("animated ","");
+			gameObject.pBrain.FactionMembership.Add("Fish", 100);
+			gameObject.pBrain.FactionMembership["Newly Sentient Beings"] = 10;
+			gameObject = HeroMaker.MakeHero(gameObject);
+			return gameObject;
 		}
 
 		public bool CheckRod(GameObject who)
