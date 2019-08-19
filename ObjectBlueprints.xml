@@ -252,7 +252,7 @@
 
   <object Name="Hurwobble"  Inherits="BaseOoze">
     <part Name="Render" DisplayName="&amp;bhurwobble" Tile="creatures/jollywobble.png" DetailColor="C" TileColor="&amp;b"></part>
-    <part Name="Description" Short="A deep indigo jelly bedecked with writhing hair thin tendrils. Grander and more dangerous than it's lighter companions.~J211"></part>
+    <part Name="Description" Short="A deep indigo jelly bedecked with writhing hair-thin tendrils. Grander and more dangerous than its lighter companions.~J211"></part>
     <part Name="Engulfing" />
     <part Name="EngulfingDamage" Amount ="2-6" />
     <part Name="EngulfingSedentary" />
@@ -273,7 +273,7 @@
   </object>
 
   <object Name="Hurwobble_Corpse" Inherits="Corpse">
-    <part Name="Render" DisplayName="hurwobblecorpse" ColorString="&amp;b" DetailColor="C" TileColor="&amp;b" />
+    <part Name="Render" DisplayName="hurwobble corpse" ColorString="&amp;b" DetailColor="C" TileColor="&amp;b" />
     <part Name="Description" Short="This cold lump of hurwobble is slowly staining the ground arounding it indigo." />
     <part Name="Physics" Weight="110" />
     <part Name="Commerce" Value="25" />
