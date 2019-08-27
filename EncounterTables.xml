@@ -40,6 +40,7 @@
         <object Chance="100" Number="1d1" Blueprint="Slither"></object>
         <object Chance="100" Number="1d1" Blueprint="Hurwobble"></object>
         <object Chance="100" Number="1d1" Blueprint="Tinker Crab"></object>
+        <object Chance="100" Number="1d1" Blueprint="Fat Sack"></object>
       </objects>
   </encountertable>
 

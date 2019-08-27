@@ -214,14 +214,14 @@
     <part Name="Commerce" Value="25"></part>
 
   </object>
-  <object Name="Blogn" Inherits="Caught Fish">
+  <!-- <object Name="Blogn" Inherits="Caught Fish">
     <part Name="Render" DisplayName="&amp;Mbl&amp;mo&amp;Mgn" DetailColor="c" TileColor="&amp;w" Tile="creatures\sw_glowfish.bmp"></part>
     <part Name="Description" Short="A wrinkled ball of greymatter encased in ceramic chitin and adorned with glinting eyes and ineffectual pincers.~J211"></part>
     <tag Name="EpicFish" />
     <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit"></tag>
     <part Name="EffectOnEat" Effect="acegiak_InstantSecret" Duration="0"></part>
     <part Name="PreparedCookingIngredient" type="secrets" charges="4"></part>
-  </object>
+  </object> -->
   <!-- <object Name="Shoreditch" Inherits="BaseFish">
     <tag Name="EpicFish" />
     <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit"></tag>
@@ -288,7 +288,7 @@
     <part Name="Food" Message="It exhudes a metalic juice between your gums as you chew.~J211"></part>
     <part Name="Physics" Weight="0"></part>
     <part Name="Commerce" Value="1"></part>
-    <part Name="PreparedCookingIngredient" type="fungus" charges="1"></part>
+    <part Name="PreparedCookingIngredient" type="fungus" charges="4"></part>
     <part Name="PreservableItem" Result="Ink Phial" Number="1"></part>
   </object>
 
@@ -300,7 +300,7 @@
     <stat Name="Hitpoints" Value="8"></stat>
     <mutation Name="EnhancedSkeleton" Score="12"></mutation>
     <mutation Name="KineticDampening" Score="12"></mutation>
-    <part Name="Brain" Hostile="True" Factions="Crabs-100"></part>
+    <part Name="Brain" Hostile="False" Factions="Crabs-100"></part>
     <inventoryobject Blueprint="Chute Crab Claw" Number="2"></inventoryobject>
     <inventoryobject Blueprint="*TinkerShells" BoostModChance="true" Number="1"/>
     <inventoryobject Blueprint="TinkerCrabMine" BoostModChance="true" Number="1"/>
@@ -330,6 +330,40 @@
       <part Name="Examiner" Complexity="0" />
       <part Name="Metal" />
       <tag Name="AutowalkAvoidRadius" Value="1" />
+  </object>
+
+
+  <object Name="Sparksack"  Inherits="BaseFish">
+    <part Name="Render" DisplayName="&amp;Wsparksack" Tile="creatures/braim.png" DetailColor="m" TileColor="&amp;W"></part>
+    <part Name="Description" Short="A melancholy face of glistening sadflab, sparking with lost energy.~J211"></part>
+    <mutation Name="ElectricalGeneration" Level="5"></mutation>
+    <stat Name="Level" Value="8"></stat>
+    <stat Name="AV" Value="6"></stat>
+    <stat Name="Hitpoints" Value="45"></stat>
+    <part Name="Corpse" CorpseChance="40" CorpseBlueprint="Sparksack Corpse" BodyDrop="false" InventoryDrop="true"></part>
+    <inventoryobject Blueprint="GiantAmoeba_Pseudopod" Number="4" />
+    <tag Name="LegendaryReel" Value="10"/>
+    <tag Name="EpicFish" />
+    <tag Name="BodyType" Value="BodyFish"/>
+  </object>
+
+  <object Name="Sparksack Corpse" Inherits="Corpse">
+    <part Name="Render" DisplayName="sparksack corpse" ColorString="&amp;W" DetailColor="m" TileColor="&amp;W" />
+    <part Name="Description" Short="The face is no longer evident as the form of the sparksack melts into a meek puddle." />
+    <part Name="Physics" Weight="20" />
+    <part Name="Commerce" Value="25" />
+    <tag Name="BleedLiquid" Value="wax-200,salt-100,water-700" />
+    <tag Name="DynamicObjectsTable:Corpses" />
+    <part Name="Butcherable" OnSuccess="FatSack"></part>
+  </object>
+
+  <object Name="FatSack"  Inherits="Caught Fish">
+    <part Name="Render" DisplayName="&amp;Wfatsack" Tile="Creatures/sw_amoeba.bmp" DetailColor="W" TileColor="&amp;y"></part>
+    <part Name="Description" Short="A scooped handful of statically charged blubber.~J211"></part>
+    <part Name="Food" Message="Your teeth buzz as you swallow the fatty battery-stuff.~J211"></part>
+    <part Name="Physics" Weight="0"></part>
+    <part Name="Commerce" Value="1"></part>
+    <part Name="PreparedCookingIngredient" type="electric" charges="4"></part>
   </object>
 
 
