@@ -191,7 +191,7 @@
     <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit"></tag>
   </object> -->
   <object Name="Burlio" Inherits="Caught Fish">
-    <part Name="Render" DisplayName="&amp;gburl&amp;Gi&amp;go" DetailColor="c" TileColor="&amp;w" Tile="creatures\sw_glowfish.bmp"></part>
+    <part Name="Render" DisplayName="&amp;gburl&amp;Gi&amp;go" DetailColor="y" TileColor="&amp;w" Tile="creatures\burlio.png"></part>
     <part Name="Description" Short="A twisted bulging muscular form, wriggling in the palm of your hand.~J211"></part>
     <tag Name="EpicFish" />
     <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit"></tag>
@@ -203,7 +203,7 @@
 
   </object>
   <object Name="Slither" Inherits="Caught Fish">
-    <part Name="Render" DisplayName="&amp;Ysl&amp;Cith&amp;Yer" DetailColor="c" TileColor="&amp;w" Tile="creatures\sw_glowfish.bmp"></part>
+    <part Name="Render" DisplayName="&amp;Ysl&amp;Cith&amp;Yer" DetailColor="c" TileColor="&amp;w" Tile="creatures\slither.png"></part>
     <part Name="Description" Short="Parts of this silvery driplet flicker in and out of existence as it gasps in the air.~J211"></part>
     <tag Name="EpicFish" />
     <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit"></tag>
@@ -251,7 +251,7 @@
 
 
   <object Name="Hurwobble"  Inherits="BaseOoze">
-    <part Name="Render" DisplayName="&amp;bhurwobble" Tile="creatures/jollywobble.png" DetailColor="C" TileColor="&amp;b"></part>
+    <part Name="Render" DisplayName="&amp;bhurwobble" Tile="creatures/hurwobble.png" DetailColor="B" TileColor="&amp;c"></part>
     <part Name="Description" Short="A deep indigo jelly bedecked with writhing hair-thin tendrils. Grander and more dangerous than its lighter companions.~J211"></part>
     <part Name="Engulfing" />
     <part Name="EngulfingDamage" Amount ="2-6" />
@@ -293,7 +293,7 @@
   </object>
 
   <object Name="Tinker Crab" Inherits="BaseCrab">
-    <part Name="Render" DisplayName="&amp;ytinker crab" Tile="creatures/sw_chutecrab.bmp" RenderString="w" ColorString="&amp;w" DetailColor="B"></part>
+    <part Name="Render" DisplayName="&amp;ytinker crab" Tile="creatures/tinkercrab.png" RenderString="r" ColorString="&amp;r" DetailColor="y"></part>
     <part Name="Corpse" CorpseChance="0" CorpseBlueprint="TinkerCrabMine" BodyDrop="true" InventoryDrop="true"></part>
     <stat Name="AV" Value="1"></stat>
     <stat Name="Level" Value="7"></stat>
@@ -334,7 +334,7 @@
 
 
   <object Name="Sparksack"  Inherits="BaseFish">
-    <part Name="Render" DisplayName="&amp;Wsparksack" Tile="creatures/braim.png" DetailColor="m" TileColor="&amp;W"></part>
+    <part Name="Render" DisplayName="&amp;Wsparksack" Tile="creatures/sparksack.png" DetailColor="Y" TileColor="&amp;W"></part>
     <part Name="Description" Short="A melancholy face of glistening sadflab, sparking with lost energy.~J211"></part>
     <mutation Name="ElectricalGeneration" Level="5"></mutation>
     <stat Name="Level" Value="8"></stat>
@@ -358,7 +358,7 @@
   </object>
 
   <object Name="FatSack"  Inherits="Caught Fish">
-    <part Name="Render" DisplayName="&amp;Wfatsack" Tile="Creatures/sw_amoeba.bmp" DetailColor="W" TileColor="&amp;y"></part>
+    <part Name="Render" DisplayName="&amp;Wfatsack" Tile="items/fatsack.png" DetailColor="y" TileColor="&amp;W"></part>
     <part Name="Description" Short="A scooped handful of statically charged blubber.~J211"></part>
     <part Name="Food" Message="Your teeth buzz as you swallow the fatty battery-stuff.~J211"></part>
     <part Name="Physics" Weight="0"></part>
