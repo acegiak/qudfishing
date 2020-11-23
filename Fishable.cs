@@ -8,7 +8,7 @@ using XRL.Rules;
 using XRL.World;
 using XRL.World.Encounters;
 using XRL.World.AI.GoalHandlers;
-using XRL.World.Parts.Effects;
+using XRL.World.Effects;
 using XRL.World.Parts.Skill;
 using XRL.World.ZoneBuilders;
 
@@ -51,13 +51,13 @@ namespace XRL.World.Parts
 		{
             ParentObject.Splash(ConsoleLib.Console.ColorUtility.StripBackgroundFormatting(ParentObject.pRender.ColorString + "."));
             int sittingMod = who.HasEffect("Sitting")?10:0;
-			acegiak_CookingAndGathering_Fishing skill = who.GetPart<acegiak_CookingAndGathering_Fishing>();
-			int skillMod = skill==null?0:who.Stat("Wisdom")/2;
+			
+			int skillMod = !who.HasSkill("acegiak_CookingAndGathering_Fishing")?0:who.Stat("Wisdom")/2;
 
 
 			GameObject caught = null;
 			
-			if(skill != null){
+			if(who.HasSkill("acegiak_CookingAndGathering_Fishing")){
 				if(ParentObject.pPhysics != null && ParentObject.pPhysics.CurrentCell != null && ParentObject.pPhysics.CurrentCell.ParentZone != null && !ParentObject.pPhysics.CurrentCell.ParentZone.IsWorldMap()){
 
 					//IPart.AddPlayerMessage("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext);
@@ -80,7 +80,7 @@ namespace XRL.World.Parts
 			}
             if(Stat.Roll("1d100")+who.StatMod("Agility")+sittingMod+skillMod > 95){
 
-				if(caught.HasTag("EpicFish")){
+				if(caught.HasTag("EpicFish") || true){
 					if(caught.HasTag("LegendaryReel") && Stat.Rnd2.Next(1,100) < Int32.Parse(caught.GetTag("LegendaryReel"))){
 						GameObject g =  heroify(caught);
 						if(g == null){
@@ -91,7 +91,8 @@ namespace XRL.World.Parts
 					}
 					this.Epic = caught;
 					this.fromCell = who.CurrentCell;
-					IPart.AddPlayerMessage("There is a tug on your line."+this.Epic.DisplayName);
+					who.ParticleText("&R!");
+					IPart.AddPlayerMessage("There is a tug on your line.");
 				}else{
 					if(caught.GetPart<Brain>() != null){
 						var rndGen = new Random();
@@ -101,13 +102,13 @@ namespace XRL.World.Parts
 					}else{
 						who.GetPart<Inventory>().AddObject(caught);
 					}
-					Popup.Show("You reel in a "+caught.DisplayName+"!");
-					caught.AwardXPTo(who,"Catch");
+					Popup.Show("You reel in "+caught.a+caught.DisplayName+"!");
+					caught.AwardXPTo(who,false,"Catch");
 					who.FireEvent(Event.New("StopFishing"));
 					return true;
 				}
             }
-			if(skill == null){
+			if(!who.HasSkill("acegiak_CookingAndGathering_Fishing")){
 				IPart.AddPlayerMessage("But nothing bites.");
 			}
 			return false;

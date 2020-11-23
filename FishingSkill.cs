@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using XRL.Language;
 using XRL.Rules;
 using XRL.World.AI.GoalHandlers;
-using XRL.World.Parts.Effects;
+using XRL.World.Effects;
 using UnityEngine;
 using XRL.World.ZoneBuilders;
 
@@ -32,7 +32,7 @@ namespace XRL.World.Parts.Skill
 			Object.RegisterPartEvent(this, "StartFishing");
 			Object.RegisterPartEvent(this, "StopFishing");
 			Object.RegisterPartEvent(this, "AddedToInventory");
-			Object.RegisterPartEvent(this, "UseEnergy");
+			Object.RegisterPartEvent(this, "UsingEnergy");
 			base.Register(Object);
 		}
 
@@ -53,9 +53,9 @@ namespace XRL.World.Parts.Skill
                 }
                 fishinHole = null;
             }
-			if (E.ID == "UseEnergy"){
-				//Debug.Log("use energy.");
-				//Debug.Log(E.GetStringParameter("Type", string.Empty));
+			if (E.ID == "UsingEnergy"){
+				//IPart.AddPlayerMessage("use energy.");
+				//IPart.AddPlayerMessage(E.GetStringParameter("Type", string.Empty));
 
                  if(E.GetStringParameter("Type", string.Empty) == "Pass" || E.GetStringParameter("Type", string.Empty) == string.Empty || E.GetStringParameter("Type", string.Empty) == "Fishing"|| E.GetStringParameter("Type", string.Empty) == "None"){
 
@@ -81,13 +81,14 @@ namespace XRL.World.Parts.Skill
 						}else{
 							if(fishinHole.GetPart<acegiak_Fishable>().Epic.HasStat("Strength") && fishinHole.GetPart<acegiak_Fishable>().Epic.MakeSave("Strength",1,ParentObject,"Strength")){
 								if(ParentObject.CurrentCell != fishinHole.GetPart<acegiak_Fishable>().fromCell){
+									CombatJuice.punch(fishinHole.GetPart<acegiak_Fishable>().fromCell.location,ParentObject.CurrentCell.location);
 									fishinHole.GetPart<acegiak_Fishable>().fromCell.AddObject(ParentObject);
 									//ParentObject.CurrentCell = fishinHole.GetPart<acegiak_Fishable>().fromCell;
 									IPart.AddPlayerMessage("You strain at the line!");
 								}
 							}else{
 								Popup.Show("You reel in "+fishinHole.GetPart<acegiak_Fishable>().Epic.the+fishinHole.GetPart<acegiak_Fishable>().Epic.DisplayNameOnly+".");
-								fishinHole.GetPart<acegiak_Fishable>().Epic.AwardXPTo(ParentObject,"Catch");
+								fishinHole.GetPart<acegiak_Fishable>().Epic.AwardXPTo(ParentObject,false,"Catch");
 								fishinHole.GetPart<acegiak_Fishable>().fromCell.AddObject(fishinHole.GetPart<acegiak_Fishable>().Epic);
 								fishinHole.GetPart<acegiak_Fishable>().fromCell = null;
 								fishinHole.GetPart<acegiak_Fishable>().Epic = null;

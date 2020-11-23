@@ -1,0 +1,23 @@
+<populations>
+    <population Name="FishIngredients">
+        <group Style="pickone" Weight="1">
+            <object Weight="100" Number="1" Blueprint="Mucarp"></object>
+            <object Weight="100" Number="1" Blueprint="Coost"></object>
+            <object Weight="100" Number="1" Blueprint="Hurling"></object>
+            <object Weight="50" Number="1" Blueprint="Jollywobble"></object>
+            <object Weight="50" Number="1" Blueprint="Carriod"></object>
+            <object Weight="10" Number="1" Blueprint="Displacer Cod"></object>
+            <object Weight="10" Number="1" Blueprint="Braim"></object>
+            <object Weight="10" Number="1" Blueprint="Chromelet"></object>
+            <object Weight="20" Number="1" Blueprint="Sultan's Star"></object>
+            <object Weight="20" Number="1" Blueprint="Corrocandus"></object>
+            <object Weight="20" Number="1" Blueprint="Gastropus"></object>
+            <object Weight="50" Number="1" Blueprint="Ansurlid Eel"></object>
+            <object Weight="20" Number="1" Blueprint="Salt Ray"></object>
+            <object Weight="5" Number="1" Blueprint="Burlio"></object>
+            <object Weight="5" Number="1" Blueprint="Slither"></object>
+            <object Weight="5" Number="1" Blueprint="Hurwobble_Slice"></object>
+            <object Weight="5" Number="1" Blueprint="FatSack"></object>
+        </group>
+    </population>
+</populations>

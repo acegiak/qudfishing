@@ -122,7 +122,7 @@ namespace XRL.World.Parts
 			Arm(who);
 			string verb = "arm";
 			GameObject parentObject = ParentObject;
-			IPart.XDidYToZ(who, verb, parentObject, null, null, false, null, who, null, UseFullNames: false, IndefiniteSubject: false, IndefiniteObject: false, IndefiniteObjectForOthers: true);
+			IPart.XDidYToZ(who, verb, parentObject);
 			who.UseEnergy(1000, "Tinkering " + ((iTimer <= 0) ? "Mine" : "Bomb") + " Arm");
 			return true;
 		}
@@ -309,7 +309,7 @@ namespace XRL.World.Parts
 			{
 				stat = "disarm";
 				GameObject parentObject = ParentObject;
-				IPart.XDidYToZ(who, stat, parentObject, null, null, false, null, who, null, UseFullNames: false, IndefiniteSubject: false, IndefiniteObject: false, IndefiniteObjectForOthers: true);
+				IPart.XDidYToZ(who, stat, parentObject);
 				Disarm();
 			}
 			else

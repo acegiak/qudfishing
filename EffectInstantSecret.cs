@@ -3,9 +3,9 @@ using XRL.Core;
 using XRL.Messages;
 using XRL.UI;
 using Qud.API;
+using XRL.World.Parts;
 
-
-namespace XRL.World.Parts.Effects
+namespace XRL.World.Effects
 {
 	[Serializable]
 	public class acegiak_InstantSecret : Effect
