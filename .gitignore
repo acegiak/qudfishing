@@ -1,2 +1,6 @@
 *.code-workspace
-fishingworkspace.code-workspace
+# Ignore files built by dotnet build
+bin/**
+obj/**
+# Ignore (symlinked) dll files
+*.dll

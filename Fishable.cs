@@ -201,7 +201,7 @@ namespace XRL.World.Parts
                 if(!CheckRod(XRLCore.Core.Game.Player.Body)){
                     return false;
                 }
-				E.GetParameter<EventParameterGetInventoryActions>("Actions").AddAction("Fish", 'f',  false, "&Wf&yish", "InvCommandFish", 10);
+				E.GetParameter<EventParameterGetInventoryActions>("Actions").AddAction("Fish", 'f',  false, "&Wf&yish", "InvCommandFish", Default: 10);
 			}
 			if (E.ID == "InvCommandFish")
 			{
