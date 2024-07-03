@@ -11,7 +11,8 @@ using XRL.World.AI.GoalHandlers;
 using XRL.World.Effects;
 using XRL.World.Parts.Skill;
 using XRL.World.ZoneBuilders;
-
+using XRL.World.Parts;
+using XRL.World.Anatomy;
 
 namespace XRL.World.Parts
 {
@@ -62,16 +63,16 @@ namespace XRL.World.Parts
 
 					//IPart.AddPlayerMessage("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext);
 					if(ParentObject.pPhysics.CurrentCell.ParentZone.NameContext != null && ParentObject.pPhysics.CurrentCell.ParentZone.NameContext != String.Empty){
-						caught = EncounterFactory.Factory.RollOneFromTable("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext);
+						caught = GameObject.create(PopulationManager.RollOneFrom("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext).Blueprint);
 					}
 					if(caught == null){
 						//IPart.AddPlayerMessage("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion());
-						caught = EncounterFactory.Factory.RollOneFromTable("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion());
+						caught = GameObject.create(PopulationManager.RollOneFrom("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion()).Blueprint);
 					}
 
 				}
 				if(caught == null){
-					caught = EncounterFactory.Factory.RollOneFromTable("Fishing");
+					caught = GameObject.create(PopulationManager.RollOneFrom("Fishing").Blueprint);
 					//IPart.AddPlayerMessage("backup:"+caught.DisplayName);
 				}else{
 
@@ -116,9 +117,8 @@ namespace XRL.World.Parts
 
 		public GameObject heroify(GameObject gameObject){
 			AnimateObject.Animate(gameObject);
-			gameObject.pRender.DisplayName = gameObject.pRender.DisplayName.Replace("animated ","");
-			gameObject.pBrain.FactionMembership.Add("Fish", 100);
-			gameObject.pBrain.FactionMembership["Newly Sentient Beings"] = 10;
+			gameObject.Render.DisplayName = gameObject.pRender.DisplayName.Replace("animated ","");
+			gameObject.Brain.SetFactionMembership("Fish", 100);
 			gameObject = HeroMaker.MakeHero(gameObject);
 			return gameObject;
 		}
@@ -201,7 +201,7 @@ namespace XRL.World.Parts
                 if(!CheckRod(XRLCore.Core.Game.Player.Body)){
                     return false;
                 }
-				E.GetParameter<EventParameterGetInventoryActions>("Actions").AddAction("Fish", 'f',  false, "&Wf&yish", "InvCommandFish", 10);
+				E.GetParameter<EventParameterGetInventoryActions>("Actions").AddAction("Fish", 'f',  false, "&Wf&yish", "InvCommandFish");
 			}
 			if (E.ID == "InvCommandFish")
 			{

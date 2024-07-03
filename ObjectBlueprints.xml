@@ -17,14 +17,14 @@
     <part Name="acegiak_Fishable"/>
   </object>
   <object Name="Caught Fish" Inherits="Raw Meat">
-      <stat Name="Strength" ShortName="ST" Min="1" Max="9000" Value="16" />
+      <!-- <stat Name="Strength" ShortName="ST" Min="1" Max="9000" Value="16" /> -->
       <stat Name="XPValue" ShortName="XPValue" sValue="*XP" Min="0" Max="2147483647" />
       <stat Name="Level" Value="1"></stat>
       <tag Name="ChooseToPreserve"></tag>
       <part Name="PreservableItem" Result="Fish Jerky" Number="1"></part>
 
 
-      <stat Name="Strength" sValue="3,1d2,(t-1)d2-1" />
+      <!-- <stat Name="Strength" sValue="3,1d2,(t-1)d2-1" />
       <stat Name="Agility" sValue="14,1d3,(t-1)d2" />
       <stat Name="Toughness" sValue="10,1d2,(t-1)d2-1" />
       <stat Name="Intelligence" sValue="3,1d2,(t-1)d2-1" />
@@ -51,7 +51,7 @@
     <tag Name="SimpleConversation" Value="&amp;w*stares at you unblinking*&amp;y" />
     <tag Name="PetResponse" Value="gurgles" />
     <part Name="ConversationScript" ConversationID="Fish" />
-    <part Name="Corpse" CorpseChance="40" CorpseBlueprint="Raw Fish Meat" BodyDrop="false" InventoryDrop="true"></part>
+    <part Name="Corpse" CorpseChance="40" CorpseBlueprint="Raw Fish Meat" BodyDrop="false" InventoryDrop="true"></part> -->
     <part Name="Commerce" Value="10"></part>
 
   </object>

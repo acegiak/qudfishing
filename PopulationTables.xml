@@ -20,4 +20,232 @@
             <object Weight="5" Number="1" Blueprint="FatSack"></object>
         </group>
     </population>
+
+
+  <population Name="Utility 1" Load="Merge">
+    <group Name="Items" Style="pickone" Load="Merge">
+      <object Chance="80" Number="1" Blueprint="FishingRod"></object>
+    </group>
+  </population>
+  <population Name="Food 3" Load="Merge">
+    <group Name="Items" Style="pickone" Load="Merge">
+      <table Chance="25" Table="All Fish"/>
+	  </group>
+  </population>
+  <population Name="Fishing">
+      <table Chance="10" Table="WaterEncounters"/>
+      <table Chance="90" Table="Scrap 1"/>
+      <table Chance="20" Table="Junk 1"/>
+      <object Chance="100" Number="1" Blueprint="Mucarp"></object>
+
+  </population>
+  <population Name="Fishing_Joppa">
+      <object Chance="100" Number="1" Blueprint="Carriod"></object>
+      <table Chance="50" Table="Fishing_Basic"/>
+
+  </population>
+  <population Name="Fishing_Basic">
+      <object Chance="20" Number="1" Blueprint="Coost"></object>
+      <object Chance="20" Number="1" Blueprint="Hurling"></object>
+      <object Chance="10" Number="1" Blueprint="Jollywobble"></object>
+      <object Chance="10" Number="1" Blueprint="Carriod"></object>
+      <object Chance="5" Number="1" Blueprint="Displacer Cod"></object>
+      <table Chance="5" Table="Fishing_Rare"/>
+      <table Chance="40" Table="Junk 1"/>
+      <table Chance="50" Table="Fishing"/>
+
+  </population>
+  
+  <population Name="Fishing_Rare">
+
+        <object Chance="100" Number="1" Blueprint="Burlio"></object>
+        <object Chance="100" Number="1" Blueprint="Slither"></object>
+        <object Chance="100" Number="1" Blueprint="Hurwobble"></object>
+        <object Chance="100" Number="1" Blueprint="Tinker Crab"></object>
+        <object Chance="100" Number="1" Blueprint="Fat Sack"></object>
+    
+  </population>
+
+
+    <population Name="JungleCaveGlobals" Load="Merge">
+    	<group Name="Contents" Load="Merge">
+        <group Name="Wet" Load="Merge">
+          <object Chance="1" Number="1" Blueprint="Tinker Crab"  Hint="Aquatic"></object>
+		</group>
+		</group>
+    </population>
+    <population Name="FlowerfieldCaveGlobals" Load="Merge">
+    	<group Name="Contents" Load="Merge">
+        <group Name="Wet" Load="Merge">
+          <object Chance="1" Number="1" Blueprint="Tinker Crab"  Hint="Aquatic"></object>
+		</group>
+		</group>
+    </population>
+    <population Name="MountainCaveGlobals" Load="Merge">
+    	<group Name="Contents" Load="Merge">
+        <group Name="Wet" Load="Merge">
+          <object Chance="1" Number="1" Blueprint="Tinker Crab"  Hint="Aquatic"></object>
+		</group>
+		</group>
+    </population>
+    <population Name="HillCaveGlobals" Load="Merge">
+    	<group Name="Contents" Load="Merge">
+        <group Name="Wet" Load="Merge">
+          <object Chance="1" Number="1" Blueprint="Tinker Crab"  Hint="Aquatic"></object>
+		</group>
+		</group>
+    </population>
+    <population Name="SaltDuneCaveGlobals" Load="Merge">
+    	<group Name="Contents" Load="Merge">
+        <group Name="Wet" Load="Merge">
+          <object Chance="1" Number="1" Blueprint="Tinker Crab"  Hint="Aquatic"></object>
+		</group>
+		</group>
+    </population>
+    <population Name="DesertCanyonCaveGlobals" Load="Merge">
+    	<group Name="Contents" Load="Merge">
+        <group Name="Wet" Load="Merge">
+          <object Chance="1" Number="1" Blueprint="Tinker Crab"  Hint="Aquatic"></object>
+		</group>
+		</group>
+    </population>
+
+    <population Name="CaveGlobals" Load="Merge">
+    	<group Name="Contents" Load="Merge">
+        <group Name="Grassy" Load="Merge">
+          <object Chance="1" Number="1" Blueprint="Tinker Crab"  Hint="Aquatic"></object>
+		</group>
+		</group>
+    </population>
+	
+
+  <population Name="All Fish">
+      <object Chance="10" Number="1" Blueprint="Mucarp"></object>
+      <object Chance="10" Number="1" Blueprint="Coost"></object>
+      <object Chance="10" Number="1" Blueprint="Hurling"></object>
+      <object Chance="5" Number="1" Blueprint="Jollywobble"></object>
+      <object Chance="5" Number="1" Blueprint="Carriod"></object>
+      <object Chance="1" Number="1" Blueprint="Displacer Cod"></object>
+      <object Chance="1" Number="1" Blueprint="Braim"></object>
+      <object Chance="1" Number="1" Blueprint="Chromelet"></object>
+      <object Chance="2" Number="1" Blueprint="Sultan's Star"></object>
+      <object Chance="2" Number="1" Blueprint="Corrocandus"></object>
+      <object Chance="2" Number="1" Blueprint="Gastropus"></object>
+      <object Chance="5" Number="1" Blueprint="Ansurlid Eel"></object>
+      <object Chance="2" Number="1" Blueprint="Salt Ray"></object>
+
+  </population>
+  <population Name="Fishing_Saltmarsh">
+      <table Chance="50" Table="Fishing_Basic"/>
+      <object Chance="5" Number="1" Blueprint="Displacer Cod"></object>
+
+  </population>
+  <population Name="Fishing_Water">
+      <object Chance="25" Number="1" Blueprint="Corrocandus"></object>
+      <object Chance="50" Number="1" Blueprint="Jollywobble"></object>
+      <table Chance="50" Table="Fishing_Basic"/>
+
+  </population>
+  <population Name="Fishing_Fungal">
+      <object Chance="50" Number="1" Blueprint="Jollywobble"></object>
+      <table Chance="50" Table="Fishing_Basic"/>
+
+  </population>
+  <population Name="Fishing_Ruins">
+      <object Chance="10" Number="1" Blueprint="Braim"></object>
+      <table Chance="40" Table="Fishing_Basic"/>
+
+  </population>
+  <population Name="Fishing_Deathlands">
+      <object Chance="10" Number="1" Blueprint="Chromelet"></object>
+      <table Chance="50" Table="Fishing_Basic"/>
+
+  </population>
+  <population Name="Fishing_BananaGrove">
+      <object Chance="5" Number="1" Blueprint="Corrocandus"></object>
+      <object Chance="10" Number="1" Blueprint="Chromelet"></object>
+      <object Chance="10" Number="1" Blueprint="Braim"></object>
+      <table Chance="50" Table="Fishing_Basic"/>
+
+  </population>
+  <population Name="Fishing_Flowerfields">
+      <object Chance="25" Number="1" Blueprint="Displacer Cod"></object>
+      <table Chance="50" Table="Fishing_Basic"/>
+
+  </population>
+  <population Name="Fishing_Saltdunes">
+      <object Chance="50" Number="1" Blueprint="Carriod"></object>
+      <object Chance="5" Number="1" Blueprint="Sultan's Star"></object>
+      <object Chance="25" Number="1" Blueprint="Salt Ray"></object>
+      <object Chance="5" Number="1" Blueprint="Corrocandus"></object>
+      <table Chance="50" Table="Fishing_Basic"/>
+      <table Chance="25" Table="Scrap 1"/>
+
+  </population>
+  <population Name="Fishing_Jungle">
+      <object Chance="10" Number="1" Blueprint="Corrocandus"></object>
+      <table Chance="50" Table="Fishing_Basic"/>
+
+  </population>
+  <population Name="Fishing_Mountains">
+      <object Chance="5" Number="1" Blueprint="Ansurlid Eel"></object>
+      <object Chance="25" Number="1" Blueprint="Crylid"></object>.
+      <object Chance="5" Number="1" Blueprint="Gastropus"></object>
+      <table Chance="50" Table="Fishing_Basic"/>
+
+  </population>
+  <population Name="Fishing_DesertCanyon">
+      <object Chance="50" Number="1" Blueprint="Ansurlid Eel"></object>
+      <object Chance="10" Number="1" Blueprint="Gastropus"></object>
+      <table Chance="50" Table="Fishing_Basic"/>
+
+  </population>
+  <population Name="Fishing_Hills">
+      <object Chance="50" Number="1" Blueprint="Ansurlid Eel"></object>
+      <object Chance="25" Number="1" Blueprint="Gastropus"></object>
+      <table Chance="50" Table="Fishing_Basic"/>
+
+  </population>
+
+  <population Name="Fishing_Bethesda Susa">
+      <object Chance="25" Number="1" Blueprint="Crylid"></object>
+      <object Chance="10" Number="1" Blueprint="Chromelet"></object>
+      <object Chance="5" Number="1" Blueprint="Jollywobble"></object>
+      <object Chance="25" Number="1" Blueprint="Mucarp"></object>
+      <table Chance="10" Table="Scrap 2"/>
+      <table Chance="5" Table="Junk 2"/>
+
+  </population>
+  <population Name="Fishing_Grit Gate">
+      <object Chance="10" Number="1" Blueprint="Ansurlid Eel"></object>
+      <object Chance="10" Number="1" Blueprint="Chromelet"></object>
+      <table Chance="60" Table="Fishing_Basic"/>
+      <table Chance="10" Table="Scrap 1"/>
+      <table Chance="5" Table="Junk 1"/>
+
+  </population>
+
+
+  <population Name="TinkerShells">
+        <object Chance="100" Number="1" Blueprint="Knollworm Skull"></object>
+        <object Chance="100" Number="1" Blueprint="Miner's Helmet"></object>
+        <object Chance="100" Number="1" Blueprint="BaseTierHead3_AV"></object>
+        <object Chance="100" Number="1" Blueprint="BaseTierHead4_AV"></object>
+        <object Chance="100" Number="1" Blueprint="Electric Snail Shell"></object>
+        <object Chance="100" Number="1" Blueprint="Fork-Horned Helmet 3"></object>
+        <object Chance="100" Number="1" Blueprint="Steel Helmet"></object>
+        <object Chance="100" Number="1" Blueprint="Fork-Horned Helmet 4"></object>
+        <object Chance="50" Number="1" Blueprint="RobotHead3"></object>
+        <object Chance="50" Number="1" Blueprint="Steel Buckler"></object>
+        <object Chance="50" Number="1" Blueprint="Wooden Buckler"></object>
+        <object Chance="50" Number="1" Blueprint="Vase"></object>
+        <object Chance="50" Number="1" Blueprint="Bottle"></object>
+        <object Chance="50" Number="1" Blueprint="Ewer"></object>
+        <object Chance="50" Number="1" Blueprint="Pitcher"></object>
+        <object Chance="50" Number="1" Blueprint="Jug"></object>
+        <object Chance="50" Number="1" Blueprint="Long Jug"></object>
+
+    
+    </population>
+
 </populations>

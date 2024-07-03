@@ -5,13 +5,28 @@ using XRL.Rules;
 using XRL.UI;
 
 namespace XRL.World.Parts
+
+
+  
 {
+	
 	[Serializable]
+	[WantLoadBlueprint]
+	[HasGameBasedStaticCache]
 	public class acegiak_fishvendorhotloader: IPart
 	{
-        public acegiak_fishvendorhotloader(){
+		static bool popped = false;
+        public acegiak_fishvendorhotloader(){}
 
+        [GameBasedCacheInit]
+        public static void HotLoad(){
+			if(!popped){
             AddToPopTable("Ingredients_MidTiers", new PopulationTable { Name = "FishIngredients", Weight = 10, Number="1" });
+            AddToPopTable("Tier1Wares", new PopulationObject { Blueprint = "FishingRod", Number="1", Chance="30" });
+
+                popped = true;
+			}
+			
         }
 
         public static bool AddToPopTable(string table, params PopulationItem[] items) {
