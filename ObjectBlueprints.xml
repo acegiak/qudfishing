@@ -51,7 +51,7 @@
     <tag Name="SimpleConversation" Value="&amp;w*stares at you unblinking*&amp;y" />
     <tag Name="PetResponse" Value="gurgles" />
     <part Name="ConversationScript" ConversationID="Fish" />
-    <part Name="Corpse" CorpseChance="40" CorpseBlueprint="Raw Fish Meat" BodyDrop="false" InventoryDrop="true"></part> -->
+    <part Name="Corpse" CorpseChance="40" CorpseBlueprint="Raw Fish Meat" BodyDrop="false"></part> -->
     <part Name="Commerce" Value="10"></part>
 
   </object>
@@ -227,7 +227,7 @@
     <tag Name="EpicFish" />
     <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit"></tag>
     <part Name="Render" DisplayName="madpole" Tile="Creatures/sw_madpole.bmp"  RenderString="224" ColorString="&amp;W" />
-    <part Name="Corpse" CorpseChance="100" CorpseBlueprint="Raw Fish Meat" BodyDrop="false" InventoryDrop="true" />
+    <part Name="Corpse" CorpseChance="100" CorpseBlueprint="Raw Fish Meat" BodyDrop="false" />
     <stat Name="Hitpoints" Value="55" />
     <stat Name="Strength" sValue="38" />
     <stat Name="Agility" sValue="27" />
@@ -260,14 +260,14 @@
     <stat Name="Level" Value="8"></stat>
     <stat Name="AV" Value="6"></stat>
     <stat Name="Hitpoints" Value="45"></stat>
-    <part Name="Corpse" CorpseChance="40" CorpseBlueprint="Hurwobble_Corpse" BodyDrop="false" InventoryDrop="true"></part>
+    <part Name="Corpse" CorpseChance="40" CorpseBlueprint="Hurwobble_Corpse" BodyDrop="false"></part>
     <inventoryobject Blueprint="Hurwobble_Tentacles" Number="2d4"></inventoryobject>
     <tag Name="LegendaryReel" Value="10"/>
     <tag Name="EpicFish" />
     <tag Name="BodyType" Value="BodyFish"/>
   </object>
   <object Name="Hurwobble_Tentacles" Inherits="NaturalWeapon">
-    <part Name="MeleeWeapon" RenderString="\" BaseDamage="3d4" Skill="ShortBlades" Stat="Strength" Slot="Hand"></part>
+    <part Name="MeleeWeapon" BaseDamage="3d4" Skill="ShortBlades" Stat="Strength" Slot="Hand"></part>
     <part Name="Render" DisplayName="venomous tentacles"></part>
     <part Name="PoisonMelee" />
     <tag Name="Gender" Value="plural" />
@@ -295,7 +295,7 @@
 
   <object Name="Tinker Crab" Inherits="BaseCrab">
     <part Name="Render" DisplayName="&amp;ytinker crab" Tile="creatures/tinkercrab.png" RenderString="r" ColorString="&amp;r" DetailColor="y"></part>
-    <part Name="Corpse" CorpseChance="0" CorpseBlueprint="TinkerCrabMine" BodyDrop="true" InventoryDrop="true"></part>
+    <part Name="Corpse" CorpseChance="40" CorpseBlueprint="TinkerCrabMine"></part>
     <stat Name="AV" Value="1"></stat>
     <stat Name="Level" Value="7"></stat>
     <stat Name="Hitpoints" Value="8"></stat>
@@ -341,7 +341,7 @@
     <stat Name="Level" Value="8"></stat>
     <stat Name="AV" Value="6"></stat>
     <stat Name="Hitpoints" Value="45"></stat>
-    <part Name="Corpse" CorpseChance="40" CorpseBlueprint="Sparksack Corpse" BodyDrop="false" InventoryDrop="true"></part>
+    <part Name="Corpse" CorpseChance="40" CorpseBlueprint="Sparksack Corpse" BodyDrop="false"></part>
     <inventoryobject Blueprint="GiantAmoeba_Pseudopod" Number="4" />
     <tag Name="LegendaryReel" Value="10"/>
     <tag Name="EpicFish" />

@@ -50,7 +50,7 @@ namespace XRL.World.Parts
 
 		public bool Fish(GameObject who,int count = 0)
 		{
-            ParentObject.Splash(ConsoleLib.Console.ColorUtility.StripBackgroundFormatting(ParentObject.pRender.ColorString + "."));
+            ParentObject.Splash(ConsoleLib.Console.ColorUtility.StripBackgroundFormatting(ParentObject.Render.ColorString + "."));
             int sittingMod = who.HasEffect("Sitting")?10:0;
 			
 			int skillMod = !who.HasSkill("acegiak_CookingAndGathering_Fishing")?0:who.Stat("Wisdom")/2;
@@ -63,16 +63,16 @@ namespace XRL.World.Parts
 
 					//IPart.AddPlayerMessage("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext);
 					if(ParentObject.pPhysics.CurrentCell.ParentZone.NameContext != null && ParentObject.pPhysics.CurrentCell.ParentZone.NameContext != String.Empty){
-						caught = GameObject.create(PopulationManager.RollOneFrom("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext).Blueprint);
+						caught = GameObject.Create(PopulationManager.RollOneFrom("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.NameContext).Blueprint);
 					}
 					if(caught == null){
 						//IPart.AddPlayerMessage("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion());
-						caught = GameObject.create(PopulationManager.RollOneFrom("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion()).Blueprint);
+						caught = GameObject.Create(PopulationManager.RollOneFrom("Fishing_"+ParentObject.pPhysics.CurrentCell.ParentZone.GetRegion()).Blueprint);
 					}
 
 				}
 				if(caught == null){
-					caught = GameObject.create(PopulationManager.RollOneFrom("Fishing").Blueprint);
+					caught = GameObject.Create(PopulationManager.RollOneFrom("Fishing").Blueprint);
 					//IPart.AddPlayerMessage("backup:"+caught.DisplayName);
 				}else{
 
@@ -117,7 +117,7 @@ namespace XRL.World.Parts
 
 		public GameObject heroify(GameObject gameObject){
 			AnimateObject.Animate(gameObject);
-			gameObject.Render.DisplayName = gameObject.pRender.DisplayName.Replace("animated ","");
+			gameObject.Render.DisplayName = gameObject.Render.DisplayName.Replace("animated ","");
 			gameObject.Brain.SetFactionMembership("Fish", 100);
 			gameObject = HeroMaker.MakeHero(gameObject);
 			return gameObject;

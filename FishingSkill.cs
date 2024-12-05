@@ -81,7 +81,7 @@ namespace XRL.World.Parts.Skill
 						}else{
 							if(fishinHole.GetPart<acegiak_Fishable>().Epic.HasStat("Strength") && fishinHole.GetPart<acegiak_Fishable>().Epic.MakeSave("Strength",1,ParentObject,"Strength")){
 								if(ParentObject.CurrentCell != fishinHole.GetPart<acegiak_Fishable>().fromCell){
-									CombatJuice.punch(fishinHole.GetPart<acegiak_Fishable>().fromCell.location,ParentObject.CurrentCell.location);
+									CombatJuice.punch(fishinHole.GetPart<acegiak_Fishable>().fromCell.Location,ParentObject.CurrentCell.location);
 									fishinHole.GetPart<acegiak_Fishable>().fromCell.AddObject(ParentObject);
 									//ParentObject.CurrentCell = fishinHole.GetPart<acegiak_Fishable>().fromCell;
 									IPart.AddPlayerMessage("You strain at the line!");
